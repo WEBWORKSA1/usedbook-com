@@ -1,0 +1,68 @@
+---
+title: Where to sell used books — compare buyback offers and selling routes
+description: Find the best place to sell a used book. Enter an ISBN to check instant buyback offers, see marketplace options, and pick the right route for textbooks, collectibles or whole collections.
+scripts: [books]
+marketplaces: true
+faq:
+  - q: Where do I find the ISBN?
+    a: Look for the barcode on the back cover; the ISBN is printed above it. It also appears on the copyright page, just after the title page. Books printed before about 1970 usually have no ISBN.
+  - q: Why will no buyback site take my book?
+    a: Buyback services buy what they can resell quickly. Older editions, common paperbacks, damaged or heavily highlighted copies are often declined. These are better donated, swapped or sold in a bulk lot.
+  - q: Is it better to sell to a buyback site or list the book myself?
+    a: Buyback is fast and certain but pays less. Listing it yourself can earn more for desirable books but takes time, photos, packing and fees. Use the Reseller Profit Calculator to compare.
+---
+{% include page-hero.html eyebrow="Sell used books" h1="Where to sell your used books for the most money" lede="Enter the ISBN from the back cover to check instant buyback offers and the best marketplaces for that book &mdash; or pick a route below for collectibles and whole collections." crumb="Sell" %}
+<section class="section-tight">
+  <div class="wrap">
+    <form class="search-card" id="sell-form" role="search" style="max-width:none;margin-top:0">
+      <div class="search-row">
+        <label class="sr-only" for="sq">ISBN or title</label>
+        <input id="sq" name="q" type="search" placeholder="ISBN from the back cover (best) or title" required>
+        <button class="btn btn-accent btn-lg" type="submit">Find buyers</button>
+      </div>
+    </form>
+    <div id="tool-out" hidden>
+      <div class="mt-2" id="s-match"></div>
+      <div class="card mt-2"><h2 style="font-size:1.3rem">Sell routes for this book</h2><ul class="mk-list" id="s-sell"></ul></div>
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Choose your route</p><h2>Which selling route fits your book?</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>You have&hellip;</th><th>Best first route</th><th>Why</th><th>Next step</th></tr></thead>
+        <tbody>
+          <tr><td>A current textbook</td><td>Buyback comparison</td><td>Demand is high until a new edition appears; quotes are instant.</td><td><a href="/guides/sell-textbooks/">Textbook tactics</a></td></tr>
+          <tr><td>Recent bestsellers, common paperbacks</td><td>Bulk sale, swap or donation</td><td>Millions of copies exist; individual listings rarely beat fees and postage.</td><td><a href="/guides/where-to-donate-used-books/">Donate or swap</a></td></tr>
+          <tr><td>Out-of-print or specialist nonfiction</td><td>Your own listing (AbeBooks, eBay, Biblio)</td><td>Niche buyers search for these and pay for them.</td><td><a href="/guides/how-to-sell-used-books/">Selling playbook</a></td></tr>
+          <tr><td>First editions, signed or pre-1900 books</td><td>Specialist dealer or auction</td><td>Value depends on edition and condition details that generalists miss.</td><td><a href="/get-offers/#valuation">Request a valuation</a></td></tr>
+          <tr><td>A box, shelf or whole library</td><td>Collection offer</td><td>Sorting out the few valuable books first protects most of the value.</td><td><a href="/get-offers/">Get offers</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Directory</p><h2>Buyback services and marketplaces</h2></div>
+    <div class="dir">
+      {% for m in site.data.marketplaces.sell %}<div><h3>{{ m.name }}</h3><p>{{ m.note }}. <a href="{{ m.home }}" target="_blank" rel="noopener nofollow">Visit &#8599;</a></p></div>{% endfor %}
+    </div>
+  </div>
+  <div class="wrap narrow prose mt-3">
+    <h2>Get more for every book you sell</h2>
+    <ul>
+      <li><strong>Sell early.</strong> Textbook and bestseller prices drop steadily; a quote today is usually higher than the same quote next term.</li>
+      <li><strong>Grade honestly.</strong> Buyback services check condition on arrival and can reduce or reject an order. Use the <a href="/tools/condition-grader/">condition grader</a> before you quote.</li>
+      <li><strong>Separate the outliers.</strong> Before you sell a box by weight, check anything old, signed, illustrated, local-history or in a dust jacket. Our <a href="/tools/book-value/">value estimator</a> shows what to look for.</li>
+      <li><strong>Mind the minimums.</strong> Many buyback services have a minimum order value to get free shipping. Group books into one order where possible.</li>
+      <li><strong>Check sold prices, not asking prices.</strong> On eBay, filter by &ldquo;Sold items&rdquo; to see what buyers actually paid.</li>
+    </ul>
+  </div>
+  <div class="wrap narrow faq mt-3">
+    <h2>Questions</h2>
+    {% for f in page.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+  </div>
+</section>

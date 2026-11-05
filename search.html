@@ -1,0 +1,30 @@
+---
+title: Search used books
+description: Search millions of books by title, author or ISBN and jump to used-price comparisons across 13 marketplaces.
+scripts: [books]
+marketplaces: true
+robots: noindex,follow
+---
+<header class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&rsaquo;</span> <span>Search</span></nav>
+    <h1 id="res-h">Search used books</h1>
+    <form class="search-row" data-booksearch data-mode="buy" role="search" style="max-width:720px">
+      <label class="sr-only" for="q">Title, author or ISBN</label>
+      <input id="q" name="q" type="search" placeholder="Title, author or ISBN" required>
+      <button class="btn btn-accent" type="submit">Search</button>
+    </form>
+    <p class="meta mt-2" id="res-count" aria-live="polite"></p>
+  </div>
+</header>
+<section class="section-tight">
+  <div class="wrap tool-grid" style="grid-template-columns:minmax(0,1fr) 320px">
+    <div class="book-grid" id="results" aria-live="polite"></div>
+    <aside class="card">
+      <h2 style="font-size:1.2rem">Search this query directly</h2>
+      <p class="muted" style="font-size:.9rem">Skip the catalogue and check live listings now.</p>
+      <ul class="mk-list" id="quick-buy"></ul>
+      <p class="fine">Pick a book from the results to compare every marketplace, see editions and sell options.</p>
+    </aside>
+  </div>
+</section>

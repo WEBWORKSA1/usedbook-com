@@ -1,0 +1,58 @@
+---
+title: Compare used book prices across 13 marketplaces
+description: Enter a title, author or ISBN once and jump to that exact book on AbeBooks, ThriftBooks, Better World Books, Alibris, Biblio, eBay, Amazon and more — plus free library options.
+scripts: [books]
+marketplaces: true
+faq:
+  - q: Should I search by ISBN or by title?
+    a: Search by ISBN when you need one specific edition, such as a textbook or a collectible printing. Search by title and author when any edition will do; that usually surfaces the cheapest copies.
+  - q: Why do prices for the same book vary so much?
+    a: Sellers price by condition, edition, shipping location and how quickly they want to sell. Collectible printings, dust jackets and signatures can multiply the price of what looks like the same book.
+  - q: Does UsedBook.com earn money from these links?
+    a: Some outbound links may carry affiliate tags, which pay us a small commission at no extra cost to you. This never changes which marketplaces we list or the order we show them in. See our Disclaimer.
+---
+{% include page-hero.html eyebrow="Price comparison" h1="Compare used book prices everywhere at once" lede="Type a title, author or ISBN. We build exact searches for 13 marketplaces and library catalogues so you can see real listings in one click each." crumb="Compare prices" %}
+<section class="section-tight">
+  <div class="wrap">
+    <form class="search-card" id="compare-form" role="search" style="max-width:none;margin-top:0">
+      <div class="search-row">
+        <label class="sr-only" for="cq">Title, author or ISBN</label>
+        <input id="cq" name="q" type="search" placeholder="e.g. 9780061120084 or The Hobbit Tolkien" required>
+        <button class="btn btn-accent btn-lg" type="submit">Compare</button>
+      </div>
+    </form>
+    <div id="tool-out" hidden>
+      <div class="mt-2" id="c-match"></div>
+      <div class="panel-grid">
+        <div class="card"><h2 style="font-size:1.3rem">Buy used</h2><ul class="mk-list" id="c-buy"></ul></div>
+        <div class="card"><h2 style="font-size:1.3rem">Sell instead?</h2><ul class="mk-list" id="c-sell"></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">The marketplaces</p><h2>Where used books are sold online</h2><p>Each one has a different strength. Use more than one before you pay.</p></div>
+    <div class="dir">
+      {% for m in site.data.marketplaces.buy %}<div><h3>{{ m.name }}</h3><p>{{ m.note }}. <a href="{{ m.home }}" target="_blank" rel="noopener nofollow">Visit &#8599;</a></p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap narrow prose">
+    <h2>Five habits of people who never overpay for used books</h2>
+    <ol>
+      <li><strong>Compare totals, not list prices.</strong> A $0.99 copy with $5.99 shipping is a $6.98 book. Many sellers bundle shipping on multiple items &mdash; buying three books from one seller is often cheaper than one each from three.</li>
+      <li><strong>Decide how much edition matters.</strong> For reading copies, &ldquo;any edition&rdquo; opens up mass-market paperbacks and book-club printings at a fraction of the price. For textbooks and collectibles, match the ISBN exactly.</li>
+      <li><strong>Read the condition note, not just the grade.</strong> &ldquo;Good&rdquo; can mean clean and tight, or it can mean highlighting on every page. Look for specifics: ex-library, underlining, water damage, missing dust jacket.</li>
+      <li><strong>Check the library first.</strong> If you only need to read it once, <a href="https://search.worldcat.org/" target="_blank" rel="noopener">WorldCat</a> shows nearby libraries holding a copy, and many offer free inter-library loan.</li>
+      <li><strong>Watch patiently for anything collectible.</strong> Prices on scarce books move as copies sell. Save a search on two or three marketplaces and check sold prices before paying the highest asking price.</li>
+    </ol>
+    <h2>How this tool works</h2>
+    <p>When you enter an ISBN we validate the check digit and pass the exact number to marketplaces that support ISBN search; for others we search the number as a keyword. When you enter words, we search them as a title/author query and look up the best catalogue match so you can open full book details, see other editions and decide which ISBN you want. We never see the prices you are shown &mdash; you go straight to each marketplace.</p>
+  </div>
+  <div class="wrap narrow faq mt-3">
+    <h2>Questions</h2>
+    {% for f in page.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+  </div>
+</section>

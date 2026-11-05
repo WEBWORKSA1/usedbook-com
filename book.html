@@ -1,0 +1,58 @@
+---
+title: Book details, used prices and value
+description: Compare used prices for this book across 13 marketplaces, see editions and ISBNs, find where to sell it and estimate what it is worth.
+scripts: [books]
+marketplaces: true
+robots: noindex,follow
+---
+<section class="section-tight" id="book">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="/search/">Search</a> <span aria-hidden="true">&rsaquo;</span> <span>Book</span></nav>
+    <div class="book-detail">
+      <div class="cover" id="bk-cover"><div class="cover-ph">Loading&hellip;</div></div>
+      <div>
+        <p class="eyebrow">Used copies, value &amp; selling</p>
+        <h1 id="bk-title">Book details</h1>
+        <p class="lede" id="bk-author"></p>
+        <dl class="kv" id="bk-facts"></dl>
+        <div class="isbn-chips" id="bk-subjects"></div>
+        <p id="bk-desc" class="mt-2" hidden></p>
+        <p class="mt-2">
+          <a class="btn btn-primary" href="#where">Compare used prices</a>
+          <a class="btn btn-accent" id="value-link" href="/tools/book-value/">Estimate value</a>
+          <button type="button" class="btn btn-ghost" id="copy-isbn" data-copy="" hidden>Copy ISBN</button>
+        </p>
+        <p class="note" id="bk-note" hidden>We couldn&rsquo;t find this book in the open catalogue. The marketplace links below still search for it directly.</p>
+      </div>
+    </div>
+
+    <div class="panel-grid" id="where">
+      <div class="card">
+        <h2 style="font-size:1.35rem">Buy a used copy</h2>
+        <div class="chips-row" style="justify-content:flex-start;margin:0 0 14px" role="radiogroup" aria-label="Match">
+          <label class="check"><input type="radio" name="match" value="any" id="match-any" checked> Any edition (cheapest)</label>
+          <label class="check"><input type="radio" name="match" value="isbn" id="match-isbn"> This exact ISBN</label>
+        </div>
+        <ul class="mk-list" id="buy-list"></ul>
+      </div>
+      <div class="card">
+        <h2 style="font-size:1.35rem">Sell this book</h2>
+        <p class="muted" style="font-size:.92rem">Buyback services quote instantly by ISBN. For collectible copies, check sold listings and specialist dealers.</p>
+        <ul class="mk-list" id="sell-list"></ul>
+        <p class="mt-2"><a class="btn btn-ghost btn-sm" href="/get-offers/#valuation">Ask for an expert opinion</a> <a class="btn btn-ghost btn-sm" href="/tools/condition-grader/">Grade its condition</a></p>
+      </div>
+    </div>
+
+    <div class="card mt-3" id="editions-wrap" hidden>
+      <h2 style="font-size:1.35rem">Editions with ISBNs</h2>
+      <p class="muted" style="font-size:.92rem">Choose an ISBN to match that exact edition in the marketplace links.</p>
+      <div class="table-wrap"><table><thead><tr><th>Published</th><th>Publisher</th><th>Format</th><th>ISBN</th></tr></thead><tbody id="bk-editions"></tbody></table></div>
+    </div>
+
+    <div class="grid grid-3 mt-3">
+      <div class="card"><h3>Reading the prices</h3><p>Compare the <em>total</em> with shipping, and the condition grade &mdash; a &ldquo;Good&rdquo; copy for $4 can cost more than a &ldquo;Very Good&rdquo; one for $7 once postage is added.</p></div>
+      <div class="card"><h3>Edition matters</h3><p>Collectors pay for specific printings. If value matters, match the exact ISBN or check the <a href="/tools/first-edition-checker/">first-edition checker</a>.</p></div>
+      <div class="card"><h3>Data source</h3><p>Catalogue data and covers come from <a id="ol-link" href="https://openlibrary.org/" target="_blank" rel="noopener">Open Library</a>. Prices and stock live on each marketplace.</p></div>
+    </div>
+  </div>
+</section>

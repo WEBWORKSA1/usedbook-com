@@ -1,0 +1,147 @@
+---
+title: Compare used-book prices, check what your books are worth, and sell smarter
+description: Search any title, author or ISBN to compare used-book prices across 13 marketplaces, estimate what a book is worth, find where to sell it, and get offers for whole collections. Free.
+scripts: [books]
+body_class: home
+faq:
+  - q: Is UsedBook.com a bookstore?
+    a: No. UsedBook.com is an independent research and comparison site. We do not hold stock or take payments for books. We look up book data, send you straight to the marketplaces and buyback services that can help, and connect sellers of larger collections with suitable buyers.
+  - q: How do I find the cheapest used copy of a book?
+    a: Search by ISBN if you need one specific edition, or by title and author if any edition will do. Then open the marketplaces we list and compare the total price including shipping, the condition grade and the seller rating.
+  - q: How can I tell if my old book is valuable?
+    a: Start with the Book Value Estimator, then confirm with recently sold prices for the same edition and condition. Edition, condition, dust jacket, signatures and scarcity matter far more than age alone.
+  - q: What should I do with a whole box or library of books?
+    a: Pull out anything that might be collectible, check a few titles with our tools, then use Get Offers to describe the collection. We review each request and reply with practical next steps and, where possible, offers.
+  - q: Does it cost anything?
+    a: No. All tools, guides and the offer request service are free to use. The site is supported by advertising, optional affiliate links, sponsorships and reader donations.
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Used-book price &amp; value intelligence</p>
+      <h1>Find the cheapest used copy. <em>Know what yours is worth.</em></h1>
+      <p class="lede">One search compares 13 marketplaces, checks where to sell, and estimates value &mdash; for a single paperback or an entire library.</p>
+      <form class="search-card" data-booksearch data-mode="buy" role="search">
+        <div class="search-tabs" role="group" aria-label="What do you want to do?">
+          <button type="button" aria-selected="true" data-mode="buy" data-ph="Title, author or ISBN" data-btn="Compare prices">Buy used</button>
+          <button type="button" aria-selected="false" data-mode="sell" data-ph="ISBN (back cover) or title" data-btn="Find buyers">Sell a book</button>
+          <button type="button" aria-selected="false" data-mode="value" data-ph="Title of the book you own" data-btn="Estimate value">What&rsquo;s it worth?</button>
+        </div>
+        <div class="search-row">
+          <label class="sr-only" for="hero-q">Search books</label>
+          <input id="hero-q" name="q" type="search" placeholder="Title, author or ISBN" autocomplete="off" required>
+          <button class="btn btn-accent btn-lg" type="submit">Compare prices</button>
+        </div>
+        <div class="search-hints"><span>Try:</span>
+          <button type="button" data-example="9780743273565">9780743273565</button>
+          <button type="button" data-example="To Kill a Mockingbird">To Kill a Mockingbird</button>
+          <button type="button" data-example="Agatha Christie">Agatha Christie</button>
+        </div>
+      </form>
+      <div class="trust-row"><span>13 marketplaces</span><span>6 free tools</span><span>No sign-up</span><span>Live catalogue data</span></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" width="100%" height="100%"><circle cx="200" cy="200" r="180" fill="var(--brand-soft)"/><g transform="translate(70 92)"><rect x="0" y="40" width="34" height="176" rx="5" fill="#C2541B"/><rect x="40" y="14" width="42" height="202" rx="5" fill="var(--brand)"/><rect x="88" y="58" width="30" height="158" rx="5" fill="#B8862B"/><rect x="124" y="26" width="38" height="190" rx="5" fill="#3E6F8E"/><rect x="168" y="70" width="28" height="146" rx="5" fill="#8C3B4A"/><g transform="rotate(14 230 216)"><rect x="206" y="44" width="40" height="172" rx="5" fill="#5E7C4F"/></g><rect x="-14" y="216" width="288" height="14" rx="4" fill="var(--surface-3)"/><g fill="#fff" opacity=".55"><rect x="48" y="40" width="26" height="4" rx="2"/><rect x="48" y="50" width="18" height="4" rx="2"/><rect x="130" y="52" width="26" height="4" rx="2"/><rect x="6" y="66" width="22" height="4" rx="2"/></g></g><g transform="translate(250 70)"><circle r="34" cx="34" cy="34" fill="var(--surface)" stroke="var(--accent)" stroke-width="6"/><path d="M58 58l22 22" stroke="var(--accent)" stroke-width="9" stroke-linecap="round"/><text x="34" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="24" font-weight="700" fill="var(--brand)">$</text></g></svg>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <ol class="steps">
+      <li><h3>Search once</h3><p>Type a title, author or the ISBN from the back cover. We pull live catalogue data &mdash; editions, covers, publication history.</p></li>
+      <li><h3>Compare everywhere</h3><p>Jump straight to the exact book on 13 marketplaces and library catalogues, or to the buyback services that pay for it.</p></li>
+      <li><h3>Buy, sell or keep</h3><p>Estimate value, grade condition and decode first editions before you buy, list, donate &mdash; or ask us for offers.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="tools-h">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Free tools</p><h2 id="tools-h">Everything you need to buy and sell used books well</h2><p class="lede">Built on the same checks booksellers use every day. No account, no paywall.</p></div>
+    <div class="grid grid-4">
+      <a class="card card-link" href="/compare/"><div class="card-icon">&#8644;</div><h3>Compare used prices</h3><p>One query, 13 marketplaces and library catalogues.</p></a>
+      <a class="card card-link" href="/sell/"><div class="card-icon accent">$</div><h3>Where to sell</h3><p>Buyback quotes, marketplaces and the right route for your book.</p></a>
+      <a class="card card-link" href="/tools/book-value/"><div class="card-icon">&#9733;</div><h3>Book value estimator</h3><p>See which factors push a book from $2 to $2,000.</p></a>
+      <a class="card card-link" href="/tools/condition-grader/"><div class="card-icon">&#10003;</div><h3>Condition grader</h3><p>Answer a checklist, get a grade and a ready-to-paste listing note.</p></a>
+      <a class="card card-link" href="/tools/first-edition-checker/"><div class="card-icon accent">1st</div><h3>First-edition checker</h3><p>Decode number lines and spot book club editions.</p></a>
+      <a class="card card-link" href="/tools/isbn-converter/"><div class="card-icon">#</div><h3>ISBN converter</h3><p>Validate, convert ISBN-10 &harr; 13, and fix check digits.</p></a>
+      <a class="card card-link" href="/tools/reseller-profit-calculator/"><div class="card-icon">%</div><h3>Reseller profit calculator</h3><p>Fees, postage and ROI before you buy that $1 find.</p></a>
+      <a class="card card-link" href="/tools/collection-estimator/"><div class="card-icon accent">&#9638;</div><h3>Collection estimator</h3><p>A bulk-offer ballpark for boxes, shelves and estates.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="trend-h">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Updated automatically</p><h2 id="trend-h">Trending with readers this week</h2><p>Live from Open Library&rsquo;s weekly trending list. Tap any book to compare used prices.</p></div>
+    <div class="book-grid" id="trending">{% for w in site.data.trending.works limit: 12 %}<a class="book-card" href="/book/?work={{ w.key | remove: '/works/' }}&amp;t={{ w.title | url_encode }}{% if w.author_name %}&amp;a={{ w.author_name | first | url_encode }}{% endif %}{% if w.first_publish_year %}&amp;y={{ w.first_publish_year }}{% endif %}{% if w.cover_i %}&amp;c={{ w.cover_i }}{% endif %}"><div class="cover"><div class="cover-ph">{{ w.title | escape }}</div>{% if w.cover_i %}<img src="https://covers.openlibrary.org/b/id/{{ w.cover_i }}-M.jpg" alt="Cover of {{ w.title | escape }}" loading="lazy">{% endif %}</div><div class="bc-body"><h3>{{ w.title | escape }}</h3><p>{{ w.author_name | first | escape }}{% if w.first_publish_year %} &middot; {{ w.first_publish_year }}{% endif %}</p></div></a>{% endfor %}</div>
+    <div class="section-head mt-3"><h2>Today&rsquo;s shelf: <span id="shelf-name">classics</span></h2><p>A different subject every day, pulled from the open catalogue.</p></div>
+    <div class="book-grid" id="shelf" data-subjects="classics,mystery_and_detective_stories,science_fiction,history,poetry,fantasy,biography,cooking,art,travel,children,philosophy"></div>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="who-h">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Selling more than a few books?</p>
+      <h2 id="who-h">From one boxed set to a 5,000-volume estate</h2>
+      <p class="lede">Most used books are worth a little; a few are worth a lot. The money is in finding those few before anything gets donated, dumped or sold by the pound.</p>
+      <ul class="list-check">
+        <li>Free review of what you have &mdash; titles, photos or just a rough description</li>
+        <li>Honest routes: bulk buyer, specialist dealer, auction, buyback or donation</li>
+        <li>Help spotting first editions, signed copies and other high-value outliers</li>
+        <li>Reply within {{ site.reply_time }}; no obligation to sell</li>
+      </ul>
+      <p class="mt-2"><a class="btn btn-accent btn-lg" href="/get-offers/">Request free offers</a> <a class="btn btn-ghost" href="/guides/inherited-book-collection/">Inherited books? Read this first</a></p>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card-link" href="/guides/inherited-book-collection/"><span class="badge">Heirs &amp; downsizers</span><h3>Clearing a home library</h3><p>What to check before anything leaves the house.</p></a>
+      <a class="card card-link" href="/guides/sell-textbooks/"><span class="badge">Students</span><h3>Selling textbooks</h3><p>Timing and edition tactics for the best buyback.</p></a>
+      <a class="card card-link" href="/guides/book-scouting-101/"><span class="badge">Resellers</span><h3>Book scouting 101</h3><p>Find profitable used books at sales and thrift stores.</p></a>
+      <a class="card card-link" href="/guides/book-collecting-for-beginners/"><span class="badge">Collectors</span><h3>Start a collection</h3><p>Build a shelf that keeps its value.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="guides-h">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Guides</p><h2 id="guides-h">Learn the used-book trade</h2><p>Practical, plain-English guides written for buyers, sellers and collectors.</p></div>
+    <div class="grid grid-3">
+      {% assign featured = site.guides | where: 'featured', true %}
+      {% for g in featured limit: 6 %}
+      <a class="card card-link" href="{{ g.url }}"><span class="badge">{{ g.category }}</span><h3>{{ g.title }}</h3><p>{{ g.description | truncate: 130 }}</p><span class="go">Read guide &rarr;</span></a>
+      {% endfor %}
+    </div>
+    <p class="center mt-3"><a class="btn btn-primary" href="/guides/">All {{ site.guides | size }} guides</a></p>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="vid-h">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Watch</p><h2 id="vid-h">Short videos from libraries and booksellers</h2></div>
+    <div class="grid grid-3">
+      {% for v in site.data.videos limit: 3 %}{% include video.html id=v.id title=v.title channel=v.channel %}{% endfor %}
+    </div>
+    <p class="center mt-3"><a class="btn btn-ghost" href="/videos/">Browse the video library</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="comm-h">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">Community</p><h2 id="comm-h">Join in, win, help build UsedBook</h2></div>
+    <div class="grid grid-4">
+      <a class="card card-link" href="/contest/"><div class="card-icon accent">&#127942;</div><h3>Monthly contest</h3><p>Share your best used-book find. Prize: {{ site.contest.prize }}.</p></a>
+      <a class="card card-link" href="/support/"><div class="card-icon">&#10084;</div><h3>Support us</h3><p>Fund free tools, new guides, prizes and fresh talent.</p></a>
+      <a class="card card-link" href="/careers/"><div class="card-icon">&#9998;</div><h3>Work with us</h3><p>Book scouts, writers, video makers and partners.</p></a>
+      <a class="card card-link" href="/advertise/"><div class="card-icon accent">&#9733;</div><h3>Advertise &amp; partner</h3><p>Reach readers, sellers and collectors with intent.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="faq-h">
+  <div class="wrap narrow faq">
+    <h2 id="faq-h" class="center">Questions, answered</h2>
+    {% for f in page.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+  </div>
+</section>
