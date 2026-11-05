@@ -1,0 +1,208 @@
+---
+title: Get free offers for your used books, collection or estate library
+description: Selling a box of books, a home library or a single rare book? Tell us what you have and get honest next steps and offers from suitable buyers. Free, no obligation.
+nolead: true
+body_class: offers
+faq:
+  - q: Is it really free?
+    a: Yes. There is no charge to submit a request or to receive our reply. If a buyer makes you an offer, you are free to accept, negotiate or walk away.
+  - q: What kinds of books are you interested in?
+    a: Everything from a single possibly-valuable book to whole estates. Collections with older books, first editions, signed copies, art and photography books, local history, specialist nonfiction or current textbooks tend to attract the strongest offers.
+  - q: Do I need a list of titles?
+    a: No. A rough description and a few photos of the shelves are enough to start. Photos of spines, title pages and copyright pages help us spot the books that carry most of the value.
+  - q: Who are the buyers?
+    a: Depending on the books and your location, that can be used and antiquarian booksellers, specialist dealers, estate buyers or auction houses. We only share your details with a buyer after you tell us you want to proceed.
+  - q: How fast will I hear back?
+    a: We aim to reply within two business days. Large or complex collections may need a short follow-up conversation or more photos.
+  - q: What if my books are not worth much?
+    a: We will tell you plainly and point you to the best donation, swap or recycling options so nothing useful ends up in a landfill.
+---
+<section class="hero" style="padding-bottom:40px">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Free &middot; No obligation &middot; Reply within {{ site.reply_time }}</p>
+      <h1>Sell your books for what they&rsquo;re <em>actually</em> worth</h1>
+      <p class="lede">Most collections contain a handful of books that carry most of the value. Tell us what you have &mdash; we&rsquo;ll help you find those books and the right buyer for the rest.</p>
+      <ul class="list-check">
+        <li>Home libraries, estates, downsizing and moving sales</li>
+        <li>Single rare, signed or first-edition books</li>
+        <li>Textbooks and specialist collections</li>
+      </ul>
+      <p class="mt-2"><a class="btn btn-accent btn-lg" href="#offer-forms" data-open-tab="collection">Start with my collection</a> <a class="btn btn-ghost" href="#offer-forms" data-open-tab="valuation">Value one book</a></p>
+    </div>
+    <div class="card" style="align-self:center">
+      <h2 style="font-size:1.25rem">What happens next</h2>
+      <ol class="prose" style="font-size:.97rem;margin:0">
+        <li><strong>You describe the books.</strong> Two minutes, photos optional.</li>
+        <li><strong>We review personally.</strong> We flag likely high-value titles and the best route.</li>
+        <li><strong>You choose.</strong> Offers, introductions or honest advice &mdash; your call.</li>
+      </ol>
+      <p class="fine">Your details are used only to respond to your request. See our <a href="/privacy/">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="offer-forms">
+  <div class="wrap narrow">
+    <div class="tabs" role="tablist" aria-label="Request type" data-tabs data-hash>
+      <button role="tab" id="tab-collection" aria-controls="p-collection" aria-selected="true">Sell a collection</button>
+      <button role="tab" id="tab-valuation" aria-controls="p-valuation" aria-selected="false">Value one book</button>
+      <button role="tab" id="tab-find" aria-controls="p-find" aria-selected="false">Find a book for me</button>
+      <button role="tab" id="tab-partner" aria-controls="p-partner" aria-selected="false">Buyers &amp; booksellers</button>
+    </div>
+
+    <div role="tabpanel" id="p-collection" aria-labelledby="tab-collection" class="form-card">
+      <form class="form" data-form="Collection offer request" data-steps data-prefill data-success="Thanks! We&rsquo;ll review your collection and reply within {{ site.reply_time }}. If you have photos, keep them handy.">
+        <div class="progress" aria-hidden="true"><i></i></div>
+        <p class="step-label" aria-live="polite"></p>
+        <fieldset data-step data-title="Your books" style="border:0;padding:0;margin:0" class="form">
+          <div class="row-2">
+            <div class="field"><label for="c-books">Roughly how many books?</label><input id="c-books" name="books" type="number" min="1" inputmode="numeric" placeholder="e.g. 300" required></div>
+            <div class="field"><label for="c-boxes">Or how many boxes / shelves?</label><input id="c-boxes" name="boxes_or_shelves" type="text" placeholder="e.g. 6 boxes, 3 bookcases"></div>
+          </div>
+          <div class="field"><span class="legend">What kinds of books? (choose any)</span>
+            <div class="options">
+              <label class="opt"><input type="checkbox" name="types" value="Fiction"><span>Fiction</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Nonfiction"><span>Nonfiction</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Textbooks"><span>Textbooks</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Children's"><span>Children&rsquo;s</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Old / pre-1900"><span>Old / pre-1900</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="First editions / signed"><span>First editions / signed</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Art & photography"><span>Art &amp; photography</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Local history / maps"><span>Local history / maps</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Religious"><span>Religious</span></label>
+              <label class="opt"><input type="checkbox" name="types" value="Comics / graphic novels"><span>Comics / graphic novels</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="c-summary">Notable titles, authors or subjects</label><textarea id="c-summary" name="summary" placeholder="e.g. 1950s Hemingway hardcovers with jackets, a shelf of WWII history, signed local authors"></textarea></div>
+          <div class="form-nav"><span></span><button type="button" class="btn btn-primary" data-next>Next: condition &amp; location &rarr;</button></div>
+        </fieldset>
+        <fieldset data-step data-title="Condition &amp; location" style="border:0;padding:0;margin:0" class="form" hidden>
+          <div class="row-2">
+            <div class="field"><label for="c-cond">Overall condition</label>
+              <select id="c-cond" name="condition" required><option value="">Choose</option><option>Excellent — like new</option><option>Good — normal reading wear</option><option>Mixed</option><option>Worn — some damage</option><option>Not sure</option></select></div>
+            <div class="field"><label for="c-store">Where have they been stored?</label>
+              <select id="c-store" name="storage"><option value="">Choose</option><option>Indoors, dry</option><option>Basement or garage</option><option>Attic or storage unit</option><option>Not sure</option></select></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="c-city">City / region</label><input id="c-city" name="city" type="text" autocomplete="address-level2" required></div>
+            <div class="field"><label for="c-country">Country</label><input id="c-country" name="country" type="text" autocomplete="country-name" required></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="c-when">Timeline</label><select id="c-when" name="timeline"><option>Flexible</option><option>Within a month</option><option>As soon as possible</option><option>Just exploring</option></select></div>
+            <div class="field"><label for="c-how">Pickup or shipping?</label><select id="c-how" name="handover"><option>Either</option><option>Prefer pickup</option><option>Can ship / drop off</option></select></div>
+          </div>
+          <div class="field"><label for="c-photos">Link to photos (optional)</label><input id="c-photos" name="photos_link" type="url" placeholder="Google Drive, Dropbox or iCloud share link"><span class="help">Spines on the shelf, plus title and copyright pages of anything that looks old or special.</span></div>
+          <div class="form-nav"><button type="button" class="btn btn-ghost" data-prev>&larr; Back</button><button type="button" class="btn btn-primary" data-next>Next: your details &rarr;</button></div>
+        </fieldset>
+        <fieldset data-step data-title="Your details" style="border:0;padding:0;margin:0" class="form" hidden>
+          <div class="row-2">
+            <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="c-email">E-mail</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="c-phone">Phone (optional)</label><input id="c-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="c-pref">Best way to reach you</label><select id="c-pref" name="contact_preference"><option>E-mail</option><option>Phone</option><option>Text message</option></select></div>
+          </div>
+          <label class="check"><input type="checkbox" name="consent" value="Yes" required> I agree that UsedBook.com may contact me about this request and, with my permission, introduce me to a suitable buyer.</label>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-nav"><button type="button" class="btn btn-ghost" data-prev>&larr; Back</button><button type="submit" class="btn btn-accent btn-lg">Get my free offers</button></div>
+        </fieldset>
+      </form>
+    </div>
+
+    <div role="tabpanel" id="p-valuation" aria-labelledby="tab-valuation" class="form-card" hidden>
+      <form class="form" data-form="Single book valuation request" data-prefill data-success="Thanks! We&rsquo;ll look at your book and reply within {{ site.reply_time }}.">
+        <p class="muted mb-0">For one book you think may be valuable. The more detail, the better the answer.</p>
+        <div class="row-2">
+          <div class="field"><label for="v-title">Title</label><input id="v-title" name="t" type="text" required></div>
+          <div class="field"><label for="v-author">Author</label><input id="v-author" name="author" type="text"></div>
+        </div>
+        <div class="row-3">
+          <div class="field"><label for="v-year">Year (title/copyright page)</label><input id="v-year" name="y" type="text" inputmode="numeric"></div>
+          <div class="field"><label for="v-pub">Publisher</label><input id="v-pub" name="publisher" type="text"></div>
+          <div class="field"><label for="v-isbn">ISBN (if any)</label><input id="v-isbn" name="isbn" type="text"></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="v-ed">Edition statement / number line</label><input id="v-ed" name="edition" type="text" placeholder="e.g. First Edition, 10 9 8 7 6 5 4 3 2 1"></div>
+          <div class="field"><label for="v-cond">Condition</label><select id="v-cond" name="condition"><option>Not sure</option><option>As New / Fine</option><option>Very Good</option><option>Good</option><option>Fair / Poor</option></select></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="v-dj">Dust jacket?</label><select id="v-dj" name="dust_jacket"><option>Not applicable / paperback</option><option>Yes, good</option><option>Yes, worn or torn</option><option>No jacket</option></select></div>
+          <div class="field"><label for="v-sig">Signed or inscribed?</label><select id="v-sig" name="signed"><option>No</option><option>Signed by the author</option><option>Inscribed to someone</option><option>Not sure</option></select></div>
+        </div>
+        <div class="field"><label for="v-photos">Link to photos</label><input id="v-photos" name="photos_link" type="url" placeholder="Cover, spine, title page, copyright page, any signature"></div>
+        <div class="field"><label for="v-notes">Anything else? (history, where it came from)</label><textarea id="v-notes" name="notes"></textarea></div>
+        <div class="row-2">
+          <div class="field"><label for="v-name">Name</label><input id="v-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="v-email">E-mail</label><input id="v-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <label class="check"><input type="checkbox" name="consent" value="Yes" required> I understand this is a free informal opinion, not a certified appraisal.</label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn-accent btn-lg">Request my valuation</button>
+      </form>
+    </div>
+
+    <div role="tabpanel" id="p-find" aria-labelledby="tab-find" class="form-card" hidden>
+      <form class="form" data-form="Book finding request" data-success="Got it. We&rsquo;ll start looking and update you within {{ site.reply_time }}.">
+        <p class="muted mb-0">Out of print, a childhood favourite, a specific edition? Tell us and we&rsquo;ll hunt for it.</p>
+        <div class="row-2">
+          <div class="field"><label for="f-title">Title</label><input id="f-title" name="wanted_title" type="text" required></div>
+          <div class="field"><label for="f-author">Author</label><input id="f-author" name="wanted_author" type="text"></div>
+        </div>
+        <div class="field"><label for="f-detail">Edition details or what you remember</label><textarea id="f-detail" name="details" placeholder="e.g. 1970s hardcover with a blue cover and illustrations of a fox"></textarea></div>
+        <div class="row-3">
+          <div class="field"><label for="f-budget">Budget</label><input id="f-budget" name="budget" type="text" placeholder="e.g. up to $60"></div>
+          <div class="field"><label for="f-cond">Minimum condition</label><select id="f-cond" name="min_condition"><option>Any readable copy</option><option>Good or better</option><option>Very Good or better</option><option>Fine only</option></select></div>
+          <div class="field"><label for="f-by">Needed by</label><input id="f-by" name="needed_by" type="text" placeholder="optional"></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn-accent btn-lg">Find it for me</button>
+      </form>
+    </div>
+
+    <div role="tabpanel" id="p-partner" aria-labelledby="tab-partner" class="form-card" hidden>
+      <form class="form" data-form="Buyer / bookseller partner application" data-success="Thanks for applying. We&rsquo;ll be in touch about how referrals work in your area.">
+        <p class="muted mb-0">Booksellers, estate buyers, auction houses and resellers: receive qualified collection referrals in your area.</p>
+        <div class="row-2">
+          <div class="field"><label for="p-co">Business name</label><input id="p-co" name="company" type="text" required></div>
+          <div class="field"><label for="p-type">Type</label><select id="p-type" name="business_type" required><option value="">Choose</option><option>Used bookstore</option><option>Antiquarian / rare-book dealer</option><option>Estate buyer or liquidator</option><option>Auction house</option><option>Online reseller</option><option>Library / Friends group</option><option>Other</option></select></div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label for="p-area">Regions you serve</label><input id="p-area" name="regions" type="text" required></div>
+          <div class="field"><label for="p-site">Website</label><input id="p-site" name="website" type="url" placeholder="https://"></div>
+        </div>
+        <div class="field"><label for="p-buy">What do you buy, and in what volume?</label><textarea id="p-buy" name="buying_profile" placeholder="Subjects, eras, minimum collection size, monthly capacity"></textarea></div>
+        <div class="row-2">
+          <div class="field"><label for="p-name">Contact name</label><input id="p-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="p-email">E-mail</label><input id="p-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn-primary btn-lg">Apply as a buyer partner</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">Why it pays to ask first</p><h2>Value hides in a few books</h2></div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Edition beats age</h3><p>A 1990s first printing in a jacket can outsell a 150-year-old sermon collection. We look at edition, condition and demand &mdash; not just the date.</p></div>
+      <div class="card"><h3>Bulk prices are blunt</h3><p>Sold by the box, every book is priced the same. Pulling the outliers first is the single biggest lever on what you receive.</p></div>
+      <div class="card"><h3>No pressure, ever</h3><p>You get a straight answer, even if it&rsquo;s &ldquo;donate these.&rdquo; If you sell, it&rsquo;s on terms you choose.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap narrow faq">
+    <h2 class="center">Questions about offers</h2>
+    {% for f in page.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+    <p class="center mt-3">Prefer to talk first? <a href="#" data-mailto="Collection inquiry">E-mail us</a> or use the <a href="/contact/">contact form</a>.</p>
+  </div>
+</section>
