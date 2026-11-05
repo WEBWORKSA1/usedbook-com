@@ -1,0 +1,29 @@
+---
+title: Used book guides - buying, selling, collecting and care
+description: Practical guides to buying and selling used books, valuing old books, identifying first editions, grading condition, collecting, donating and caring for books.
+---
+{% include page-hero.html eyebrow="Guides" h1="Used-book guides that actually help" lede="Straight answers on buying, selling, valuing, collecting and caring for used books &mdash; written for readers, not search engines." crumb="Guides" %}
+<section class="section-tight">
+  <div class="wrap">
+    <div class="filter-bar" data-filter-group="#guide-grid" role="group" aria-label="Filter guides by topic">
+      <button type="button" class="chip active" data-filter="all" aria-pressed="true">All ({{ site.guides | size }})</button>
+      <button type="button" class="chip" data-filter="selling" aria-pressed="false">Selling</button>
+      <button type="button" class="chip" data-filter="buying" aria-pressed="false">Buying</button>
+      <button type="button" class="chip" data-filter="collecting" aria-pressed="false">Collecting &amp; value</button>
+      <button type="button" class="chip" data-filter="care" aria-pressed="false">Care &amp; repair</button>
+      <button type="button" class="chip" data-filter="giving" aria-pressed="false">Donating</button>
+    </div>
+    <div class="grid grid-3" id="guide-grid">
+      {% assign gs = site.guides | sort: 'order' %}
+      {% for g in gs %}
+      <a class="card card-link" href="{{ g.url }}" data-cat="{{ g.category | downcase }}"><span class="badge">{{ g.category }}</span><h3>{{ g.title }}</h3><p>{{ g.description | truncate: 140 }}</p><span class="go">Read guide &rarr;</span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow center">
+    <h2>Get new guides by e-mail</h2>
+    {% include newsletter.html id="guides" %}
+  </div>
+</section>
