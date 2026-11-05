@@ -12,7 +12,7 @@ description: Every page on UsedBook.com - tools, guides, community pages and pol
       <li><a href="/tools/">All tools</a></li><li><a href="/tools/book-value/">Book value estimator</a></li><li><a href="/tools/condition-grader/">Condition grader</a></li><li><a href="/tools/first-edition-checker/">First-edition checker</a></li><li><a href="/tools/isbn-converter/">ISBN converter</a></li><li><a href="/tools/reseller-profit-calculator/">Reseller profit calculator</a></li><li><a href="/tools/collection-estimator/">Collection estimator</a></li>
     </ul></div>
     <div><h2 style="font-size:1.3rem">Guides</h2><ul>
-      {% assign gs = site.guides | sort: 'title' %}{% for g in gs %}<li><a href="{{ g.url }}">{{ g.title }}</a></li>{% endfor %}
+      {% assign gs = site.guides | sort: 'title' %}{% for g in gs %}<li><a href="{{ g.url }}">{{ g.title | replace: ' - ', ': ' }}</a></li>{% endfor %}
     </ul></div>
     <div><h2 style="font-size:1.3rem">Community</h2><ul>
       <li><a href="/contest/">Monthly contest</a></li><li><a href="/support/">Support us</a></li><li><a href="/careers/">Careers &amp; talent</a></li><li><a href="/advertise/">Advertise &amp; partner</a></li>

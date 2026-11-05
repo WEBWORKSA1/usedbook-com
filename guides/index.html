@@ -16,7 +16,7 @@ description: Practical guides to buying and selling used books, valuing old book
     <div class="grid grid-3" id="guide-grid">
       {% assign gs = site.guides | sort: 'order' %}
       {% for g in gs %}
-      <a class="card card-link" href="{{ g.url }}" data-cat="{{ g.category | downcase }}"><span class="badge">{{ g.category }}</span><h3>{{ g.title }}</h3><p>{{ g.description | truncate: 140 }}</p><span class="go">Read guide &rarr;</span></a>
+      <a class="card card-link" href="{{ g.url }}" data-cat="{{ g.category | downcase }}"><span class="badge">{{ g.category }}</span><h3>{{ g.title | replace: ' - ', ': ' }}</h3><p>{{ g.description | truncate: 140 }}</p><span class="go">Read guide &rarr;</span></a>
       {% endfor %}
     </div>
   </div>
