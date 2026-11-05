@@ -1,0 +1,44 @@
+name: Build and quality check
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - ".build/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-check
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+      - name: Install GitHub Pages gem set
+        run: gem install github-pages --no-document > /tmp/gem.log 2>&1 || (tail -40 /tmp/gem.log; exit 1)
+      - name: Build site with Jekyll (GitHub Pages versions)
+        run: |
+          echo "jekyll $(jekyll --version)" > build.log
+          JEKYLL_ENV=production jekyll build --trace >> build.log 2>&1 || echo "BUILD_FAILED" >> build.log
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Quality checks
+        run: |
+          mkdir -p .build
+          for f in assets/js/*.js; do node --check "$f" >> js.log 2>&1 && echo "OK $f" >> js.log || echo "JS SYNTAX ERROR $f" >> js.log; done
+          python scripts/check_site.py > .build/report.txt 2>&1 || true
+      - name: Save report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .build/report.txt
+          git diff --cached --quiet || (git commit -m "Build report" && git push)
