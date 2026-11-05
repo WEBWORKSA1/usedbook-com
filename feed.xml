@@ -1,0 +1,26 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>UsedBook.com Guides</title>
+  <link>{{ site.url }}/guides/</link>
+  <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>{{ site.description | xml_escape }}</description>
+  <language>en</language>
+  <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+  {%- assign gs = site.guides | sort: 'updated' | reverse -%}
+  {%- for g in gs %}
+  <item>
+    <title>{{ g.title | xml_escape }}</title>
+    <link>{{ g.url | absolute_url }}</link>
+    <guid isPermaLink="true">{{ g.url | absolute_url }}</guid>
+    <pubDate>{{ g.updated | date_to_rfc822 }}</pubDate>
+    <category>{{ g.category | xml_escape }}</category>
+    <description>{{ g.description | xml_escape }}</description>
+  </item>
+  {%- endfor %}
+</channel>
+</rss>

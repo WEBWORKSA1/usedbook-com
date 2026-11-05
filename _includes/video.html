@@ -1,0 +1,6 @@
+<figure class="video">
+  <button class="yt" type="button" data-yt="{{ include.id }}" aria-label="Play video: {{ include.title | escape }}" style="background-image:url('https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg')">
+    <span class="yt-play" aria-hidden="true"></span>
+  </button>
+  <figcaption><strong>{{ include.title }}</strong>{% if include.channel %} &middot; {{ include.channel }}{% endif %}</figcaption>
+</figure>

@@ -1,0 +1,68 @@
+title: UsedBook
+domain: UsedBook.com
+tagline: Compare used-book prices, check what your books are worth, and sell smarter
+description: >-
+  UsedBook.com compares used-book prices across 13 marketplaces, estimates what your
+  books are worth, grades condition, decodes first editions and shows the best places
+  to sell, donate or swap used books.
+url: "https://usedbook.com"
+baseurl: ""
+lang: en
+timezone: America/Toronto
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+plugins:
+  - jekyll-sitemap
+collections:
+  guides:
+    output: true
+    permalink: /guides/:name/
+defaults:
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: guide
+      type: guide
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - README.md
+  - BUILD-PROMPTS.md
+  - RESEARCH.md
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - package.json
+  - package-lock.json
+
+# ---------------------------------------------------------------
+# Monetisation & operations switches (edit freely)
+# ---------------------------------------------------------------
+adsense_client: ca-pub-6620975821265271
+adsense_slots:          # optional manual units; blank = Auto ads only
+  in_article: ""
+  footer: ""
+affiliate:
+  amazon_tag: ""        # e.g. usedbook-20 (Amazon Associates)
+  ebay_campid: ""       # eBay Partner Network campaign id
+donate_links:           # buttons on /support/ render only when set
+  paypal: ""
+  stripe: ""
+  buymeacoffee: ""
+contest:
+  round: "Round 1"
+  theme: "Your best used-book find for under $10"
+  prize: "$50 bookstore gift card"
+  deadline: "December 31, 2026"
+  status: open          # open | judging | closed
+contact_url: "https://web.works/contact"
+reply_time: "2 business days"

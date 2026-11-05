@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- assign ptitle = page.title | default: site.tagline -%}
+{%- assign pdesc = page.description | default: site.description | strip_html | strip_newlines | truncate: 170 -%}
+<title>{% if page.url == '/' %}UsedBook.com &mdash; {{ site.tagline }}{% else %}{{ ptitle }} | UsedBook.com{% endif %}</title>
+<meta name="description" content="{{ pdesc | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta name="robots" content="{{ page.robots | default: 'index,follow,max-image-preview:large' }}">
+<meta name="theme-color" content="#1F5F4F">
+<meta name="author" content="UsedBook.com">
+<meta property="og:type" content="{% if page.type == 'guide' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="UsedBook.com">
+<meta property="og:title" content="{{ ptitle | escape }}">
+<meta property="og:description" content="{{ pdesc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/img/og.svg' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ ptitle | escape }}">
+<meta name="twitter:description" content="{{ pdesc | escape }}">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="UsedBook.com Guides" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
+<script>(function(){try{var t=localStorage.getItem('ub-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
+{%- unless page.noads %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+{%- endunless %}
+{% include schema.html %}
+</head>
+<body class="{{ page.body_class }}">
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar" role="note"><div class="wrap"><a href="{{ site.contact_url }}" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div></div>
+<header class="site-header" id="top">
+  <div class="wrap header-in">
+    <a class="logo" href="/" aria-label="UsedBook.com home">{% include logo.html %}<span class="logo-text">Used<b>Book</b><small>.com</small></span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="/compare/"{% if page.url == '/compare/' %} aria-current="page"{% endif %}>Compare</a></li>
+        <li><a href="/sell/"{% if page.url == '/sell/' %} aria-current="page"{% endif %}>Sell</a></li>
+        <li><a href="/tools/book-value/"{% if page.url == '/tools/book-value/' %} aria-current="page"{% endif %}>Value</a></li>
+        <li class="has-sub">
+          <button type="button" class="sub-toggle" aria-expanded="false">Tools</button>
+          <ul class="sub">
+            <li><a href="/tools/">All free tools</a></li>
+            <li><a href="/tools/book-value/">Book Value Estimator</a></li>
+            <li><a href="/tools/condition-grader/">Condition Grader</a></li>
+            <li><a href="/tools/first-edition-checker/">First-Edition Checker</a></li>
+            <li><a href="/tools/isbn-converter/">ISBN Converter</a></li>
+            <li><a href="/tools/reseller-profit-calculator/">Reseller Profit Calculator</a></li>
+            <li><a href="/tools/collection-estimator/">Collection Estimator</a></li>
+          </ul>
+        </li>
+        <li><a href="/guides/"{% if page.url contains '/guides/' %} aria-current="page"{% endif %}>Guides</a></li>
+        <li><a href="/bookstores/"{% if page.url == '/bookstores/' %} aria-current="page"{% endif %}>Bookstores</a></li>
+        <li><a href="/videos/"{% if page.url == '/videos/' %} aria-current="page"{% endif %}>Videos</a></li>
+        <li class="has-sub">
+          <button type="button" class="sub-toggle" aria-expanded="false">Community</button>
+          <ul class="sub">
+            <li><a href="/contest/">Monthly Contest</a></li>
+            <li><a href="/support/">Support UsedBook</a></li>
+            <li><a href="/careers/">Careers &amp; Talent</a></li>
+            <li><a href="/advertise/">Advertise &amp; Partner</a></li>
+            <li><a href="/glossary/">Book Glossary</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-accent btn-sm hide-xs" href="/get-offers/">Get offers</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+{{ content }}
+</main>
+{% unless page.nolead %}{% include lead-band.html %}{% endunless %}
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="/" aria-label="UsedBook.com home">{% include logo.html %}<span class="logo-text">Used<b>Book</b><small>.com</small></span></a>
+        <p>Independent used-book price, value and selling intelligence. Search once, compare everywhere, sell smarter.</p>
+        {% include newsletter.html id="foot" %}
+      </div>
+      <div class="foot-cols">
+        <div><h3>Tools</h3><ul>
+          <li><a href="/compare/">Compare used prices</a></li>
+          <li><a href="/sell/">Where to sell a book</a></li>
+          <li><a href="/tools/book-value/">Book value estimator</a></li>
+          <li><a href="/tools/condition-grader/">Condition grader</a></li>
+          <li><a href="/tools/first-edition-checker/">First-edition checker</a></li>
+          <li><a href="/tools/isbn-converter/">ISBN converter</a></li>
+          <li><a href="/tools/reseller-profit-calculator/">Profit calculator</a></li>
+          <li><a href="/tools/collection-estimator/">Collection estimator</a></li>
+        </ul></div>
+        <div><h3>Guides</h3><ul>
+          <li><a href="/guides/how-to-sell-used-books/">How to sell used books</a></li>
+          <li><a href="/guides/how-much-is-my-book-worth/">What is my book worth?</a></li>
+          <li><a href="/guides/how-to-identify-a-first-edition/">Identify a first edition</a></li>
+          <li><a href="/guides/book-condition-grades/">Condition grades</a></li>
+          <li><a href="/guides/where-to-buy-used-books/">Where to buy used books</a></li>
+          <li><a href="/guides/inherited-book-collection/">Inherited a collection?</a></li>
+          <li><a href="/guides/">All guides &rarr;</a></li>
+        </ul></div>
+        <div><h3>Community</h3><ul>
+          <li><a href="/get-offers/">Get offers</a></li>
+          <li><a href="/contest/">Monthly contest</a></li>
+          <li><a href="/support/">Support us</a></li>
+          <li><a href="/careers/">Careers &amp; talent</a></li>
+          <li><a href="/advertise/">Advertise &amp; partner</a></li>
+          <li><a href="/bookstores/">Bookstore finder</a></li>
+          <li><a href="/videos/">Videos</a></li>
+        </ul></div>
+        <div><h3>Company</h3><ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/editorial-policy/">Editorial policy</a></li>
+          <li><a href="/glossary/">Glossary</a></li>
+          <li><a href="/sitemap/">Sitemap</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/cookies/">Cookies</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/trademark/">Trademark &amp; copyright</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; {{ site.time | date: '%Y' }} UsedBook.com &middot; Independent website, not affiliated with any bookseller, marketplace or business using a similar name. &ldquo;Used book&rdquo; is a generic, descriptive term &mdash; see <a href="/trademark/">Trademark &amp; Copyright</a>. Book data courtesy of <a href="https://openlibrary.org/" rel="noopener" target="_blank">Open Library</a>.</p>
+      <p>Last updated {{ site.time | date: '%B %-d, %Y' }} &middot; <a href="{{ site.contact_url }}" target="_blank" rel="noopener">Domain, sponsorship &amp; partnership inquiries</a></p>
+    </div>
+  </div>
+</footer>
+{% unless page.nolead %}
+<div class="sticky-cta" id="stickyCta" hidden>
+  <span>Selling books? Get free offers.</span>
+  <a class="btn btn-accent btn-sm" href="/get-offers/">Start</a>
+  <button type="button" class="sticky-x" aria-label="Dismiss">&times;</button>
+</div>
+<div class="modal" id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exit-h" hidden>
+  <div class="modal-card">
+    <button type="button" class="modal-x" data-close aria-label="Close">&times;</button>
+    <p class="eyebrow">Before you go</p>
+    <h2 id="exit-h">Find out what your books are worth</h2>
+    <p>Tell us roughly what you have and where to reach you. We&rsquo;ll reply with honest next steps &mdash; free.</p>
+    <form data-form="Exit-intent lead" data-success="Thanks! We&rsquo;ll be in touch within {{ site.reply_time }}." novalidate>
+      <div class="field"><label for="ex-what">What do you have?</label>
+        <select id="ex-what" name="what" required>
+          <option value="">Choose one</option><option>One possibly valuable book</option><option>A box of books (10&ndash;50)</option><option>Several boxes (50&ndash;500)</option><option>A whole library or estate (500+)</option><option>Textbooks</option>
+        </select></div>
+      <div class="field"><label for="ex-email">E-mail</label><input id="ex-email" type="email" name="email" autocomplete="email" required></div>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-accent btn-block" type="submit">Send</button>
+      <p class="fine">No spam. See our <a href="/privacy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div>
+{% endunless %}
+<div class="cookie" id="cookie" hidden>
+  <p>We use cookies for ads (Google AdSense), basic analytics-free preferences and form security. <a href="/cookies/">Cookie Policy</a></p>
+  <button type="button" class="btn btn-primary btn-sm" id="cookieOk">OK</button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+{%- if page.marketplaces %}
+<script type="application/json" id="mk-data">{{ site.data.marketplaces | jsonify }}</script>
+<script type="application/json" id="ub-config">{"amazon_tag":{{ site.affiliate.amazon_tag | jsonify }},"ebay_campid":{{ site.affiliate.ebay_campid | jsonify }}}</script>
+{%- endif %}
+<script src="/assets/js/app.js?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{%- for s in page.scripts %}
+<script src="/assets/js/{{ s }}.js?v={{ site.time | date: '%Y%m%d%H%M' }}" defer></script>
+{%- endfor %}
+</body>
+</html>

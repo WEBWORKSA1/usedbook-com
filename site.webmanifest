@@ -1,0 +1,12 @@
+{
+  "name": "UsedBook.com",
+  "short_name": "UsedBook",
+  "description": "Compare used-book prices, check what your books are worth, and sell smarter.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF8F3",
+  "theme_color": "#1F5F4F",
+  "icons": [
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

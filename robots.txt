@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+Sitemap: https://usedbook.com/sitemap.xml

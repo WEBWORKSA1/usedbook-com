@@ -1,0 +1,8 @@
+<header class="page-hero">
+  <div class="wrap {{ include.width | default: '' }}">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a>{% if include.parent %} <span aria-hidden="true">&rsaquo;</span> <a href="{{ include.parent_url }}">{{ include.parent }}</a>{% endif %} <span aria-hidden="true">&rsaquo;</span> <span>{{ include.crumb | default: page.title }}</span></nav>
+    {% if include.eyebrow %}<p class="eyebrow">{{ include.eyebrow }}</p>{% endif %}
+    <h1>{{ include.h1 | default: page.title }}</h1>
+    {% if include.lede %}<p class="lede">{{ include.lede }}</p>{% endif %}
+  </div>
+</header>

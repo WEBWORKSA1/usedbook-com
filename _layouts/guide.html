@@ -1,0 +1,60 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign mins = words | divided_by: 220 | plus: 1 -%}
+<article class="guide">
+  <header class="page-hero guide-hero">
+    <div class="wrap narrow">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="/guides/">Guides</a> <span aria-hidden="true">&rsaquo;</span> <span>{{ page.category }}</span></nav>
+      <p class="eyebrow">{{ page.category }} guide</p>
+      <h1>{{ page.title }}</h1>
+      <p class="lede">{{ page.description }}</p>
+      <p class="meta">By <a href="/editorial-policy/">UsedBook Editorial Team</a> &middot; Updated <time datetime="{{ page.updated | date: '%Y-%m-%d' }}">{{ page.updated | date: '%B %-d, %Y' }}</time> &middot; {{ mins }} min read</p>
+    </div>
+  </header>
+  <div class="wrap guide-grid">
+    <aside class="toc-wrap"><nav class="toc" id="toc" aria-label="On this page" hidden><p class="toc-h">On this page</p><ol></ol></nav></aside>
+    <div class="guide-body">
+      <div class="prose" id="prose">
+{{ content }}
+      </div>
+      {% if page.video %}
+      <section class="guide-video" aria-label="Related video">
+        <h2 id="watch">Watch: {{ page.video_title }}</h2>
+        {% include video.html id=page.video title=page.video_title channel=page.video_channel %}
+        <p class="fine">Video embedded from YouTube; it loads only when you press play. More in our <a href="/videos/">video library</a>.</p>
+      </section>
+      {% endif %}
+      {% include ad.html slot="in_article" %}
+      {% if page.faq %}
+      <section class="faq" aria-labelledby="faq">
+        <h2 id="faq">Frequently asked questions</h2>
+        {% for f in page.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+      </section>
+      {% endif %}
+      {% include guide-cta.html %}
+      <div class="share" aria-label="Share this guide">
+        <span>Share:</span>
+        <button type="button" class="chip" data-share>Share / copy link</button>
+        <a class="chip" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | uri_escape }}">Facebook</a>
+        <a class="chip" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | uri_escape }}&amp;text={{ page.title | uri_escape }}">X</a>
+        <a class="chip" target="_blank" rel="noopener" href="https://www.reddit.com/submit?url={{ page.url | absolute_url | uri_escape }}&amp;title={{ page.title | uri_escape }}">Reddit</a>
+        <a class="chip" target="_blank" rel="noopener" href="https://wa.me/?text={{ page.title | append: ' ' | append: page.url | absolute_url | uri_escape }}">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <section class="wrap related" aria-labelledby="rel-h">
+    <h2 id="rel-h">Keep reading</h2>
+    <div class="grid grid-3">
+    {%- assign shown = 0 -%}
+    {%- assign same = site.guides | where: 'category', page.category -%}
+    {%- for g in same -%}{%- if g.url != page.url and shown < 3 -%}{%- assign shown = shown | plus: 1 -%}
+      <a class="card card-link" href="{{ g.url }}"><span class="badge">{{ g.category }}</span><h3>{{ g.title }}</h3><p>{{ g.description | truncate: 120 }}</p></a>
+    {%- endif -%}{%- endfor -%}
+    {%- for g in site.guides -%}{%- if g.url != page.url and g.category != page.category and shown < 3 -%}{%- assign shown = shown | plus: 1 -%}
+      <a class="card card-link" href="{{ g.url }}"><span class="badge">{{ g.category }}</span><h3>{{ g.title }}</h3><p>{{ g.description | truncate: 120 }}</p></a>
+    {%- endif -%}{%- endfor -%}
+    </div>
+  </section>
+</article>
