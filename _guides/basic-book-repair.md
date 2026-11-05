@@ -55,7 +55,7 @@ When the cover moves loosely but hasn't detached:
 
 ## Reattaching a detached cover
 
-This is a bigger job. In outline, a strip of cloth or mull is glued along the spine of the text block, extending onto both sides, then the text block is glued back into the cover through this hinge material, and the endpapers are pasted down. The video above demonstrates a low-cost spine repair, and our [video library](/videos/) has more repair demonstrations from library preservation labs. Take your time and test on a book you don't mind practising on.
+This is a bigger job. In outline, a strip of cloth or mull is glued along the spine of the text block, extending onto both sides, then the text block is glued back into the cover through this hinge material, and the endpapers are pasted down. The video below demonstrates a low-cost spine repair, and our [video library](/videos/) has more repair demonstrations from library preservation labs. Take your time and test on a book you don't mind practising on.
 
 ## Spine repairs
 
