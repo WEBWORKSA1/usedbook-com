@@ -1,0 +1,43 @@
+---
+title: First Edition Checker - decode number lines and spot book club editions
+description: Type the number line from the copyright page to see which printing you have, read year codes, and check the signs of a book club edition.
+scripts: [tools]
+---
+{% include page-hero.html eyebrow="Free tool" h1="First-Edition Checker" lede="The row of numbers on the copyright page (the number line or printer&rsquo;s key) tells you which printing you hold. Type it in." parent="Tools" parent_url="/tools/" crumb="First-edition checker" %}
+<section class="section-tight">
+  <div class="wrap tool-grid">
+    <form class="form card" id="nl-form">
+      <div class="field"><label for="nl">Number line, exactly as printed</label><input id="nl" name="line" type="text" inputmode="numeric" placeholder="e.g. 10 9 8 7 6 5 4 3 2 1" autocomplete="off"></div>
+      <p class="search-hints" style="margin:0"><span>Examples:</span>
+        <button type="button" data-line="10 9 8 7 6 5 4 3 2 1">10 9 8 &hellip; 1</button>
+        <button type="button" data-line="1 3 5 7 9 10 8 6 4 2">1 3 5 &hellip; 2</button>
+        <button type="button" data-line="3 4 5 6 7 8 9 10">3 4 5 &hellip; 10</button>
+        <button type="button" data-line="75 76 77 78 79 10 9 8 7 6 5 4 3 2">with year codes</button>
+      </p>
+      <label class="check"><input type="checkbox" name="stmt"> The copyright page also says &ldquo;First Edition&rdquo; or &ldquo;First Printing&rdquo;</label>
+      <span class="legend mt-2">Book club edition signs (tick any you see)</span>
+      <label class="check"><input type="checkbox" name="bce"> No price printed on the jacket flap</label>
+      <label class="check"><input type="checkbox" name="bce"> &ldquo;Book Club Edition&rdquo; printed on the jacket flap</label>
+      <label class="check"><input type="checkbox" name="bce"> Small blind-stamped dot, square or shape on the lower back cover</label>
+      <label class="check"><input type="checkbox" name="bce"> Slightly smaller and thinner than the trade edition, cheaper paper</label>
+      <label class="check"><input type="checkbox" name="bce"> No ISBN or barcode on the jacket where the trade edition has one</label>
+      <button class="btn btn-primary" type="submit">Check</button>
+    </form>
+    <div class="result" id="nl-result" aria-live="polite"></div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow prose">
+    <h2>How number lines work</h2>
+    <p>Since roughly the 1970s many publishers have printed a line of numbers on the copyright page. When a book goes back to press, the printer removes the lowest number. So the lowest number still showing is the printing: if you can see a <strong>1</strong>, you are holding a first printing.</p>
+    <p>The order of the numbers doesn&rsquo;t matter. <code>10 9 8 7 6 5 4 3 2 1</code>, <code>1 2 3 4 5 6 7 8 9 10</code> and <code>1 3 5 7 9 10 8 6 4 2</code> all indicate a first printing. Some lines include two-digit year codes (for example <code>75 76 77</code>); the lowest year usually shows when that printing was made.</p>
+    <h2>Where the rules break</h2>
+    <ul>
+      <li><strong>Lines that start at 2.</strong> Some publishers &mdash; Random House is the best-known example &mdash; long paired a line beginning at 2 with a &ldquo;First Edition&rdquo; statement on true first printings, dropping the statement on later ones.</li>
+      <li><strong>Statements left in place.</strong> Some publishers keep &ldquo;First Edition&rdquo; on later printings. If the line says otherwise, trust the line.</li>
+      <li><strong>No line at all.</strong> Older books generally have no number line. Look for &ldquo;First published in&hellip;&rdquo; with no later reprint dates, and a title-page date that matches the copyright date.</li>
+      <li><strong>Book club editions</strong> can look like firsts and even carry a number line, but they are a different, much less valuable product.</li>
+    </ul>
+    <p>Edition identification is publisher- and era-specific. For anything that looks valuable, confirm with a publisher-by-publisher reference and read our guide <a href="/guides/how-to-identify-a-first-edition/">How to identify a first edition</a>.</p>
+  </div>
+</section>

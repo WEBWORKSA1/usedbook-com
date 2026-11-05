@@ -1,0 +1,42 @@
+---
+title: Book Collection Estimator - bulk value ballpark for boxes and libraries
+description: Count your books by type to get a ballpark of what a bulk buyer might offer for a box, shelf or whole library - then request real offers in one click.
+scripts: [tools]
+---
+{% include page-hero.html eyebrow="Free tool" h1="Book Collection Estimator" lede="Count roughly how many books you have of each type. Adjust the per-book figures if you know better. You&rsquo;ll get a bulk-offer ballpark and the best next step." parent="Tools" parent_url="/tools/" crumb="Collection estimator" %}
+<section class="section-tight">
+  <div class="wrap tool-grid">
+    <form class="form card" id="coll-form">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Type</th><th style="width:110px">How many</th><th style="width:120px">$ per book*</th></tr></thead>
+          <tbody>
+            <tr data-row="mass-market paperbacks"><td>Mass-market paperbacks</td><td><input data-n type="number" min="0" value="0" aria-label="Mass-market paperbacks count"></td><td><input data-v type="number" min="0" step="0.05" value="0.10" aria-label="Value each"></td></tr>
+            <tr data-row="trade paperbacks"><td>Trade paperbacks</td><td><input data-n type="number" min="0" value="0" aria-label="Trade paperbacks count"></td><td><input data-v type="number" min="0" step="0.05" value="0.40" aria-label="Value each"></td></tr>
+            <tr data-row="general hardcovers"><td>Hardcover fiction / general</td><td><input data-n type="number" min="0" value="0" aria-label="General hardcovers count"></td><td><input data-v type="number" min="0" step="0.05" value="0.60" aria-label="Value each"></td></tr>
+            <tr data-row="nonfiction hardcovers"><td>Nonfiction hardcover (history, art, reference)</td><td><input data-n type="number" min="0" value="0" aria-label="Nonfiction hardcovers count"></td><td><input data-v type="number" min="0" step="0.05" value="1.50" aria-label="Value each"></td></tr>
+            <tr data-row="children's books"><td>Children&rsquo;s books</td><td><input data-n type="number" min="0" value="0" aria-label="Children's books count"></td><td><input data-v type="number" min="0" step="0.05" value="0.30" aria-label="Value each"></td></tr>
+            <tr data-row="current textbooks"><td>Textbooks, current edition</td><td><input data-n type="number" min="0" value="0" aria-label="Current textbooks count"></td><td><input data-v type="number" min="0" step="0.5" value="8.00" aria-label="Value each"></td></tr>
+            <tr data-row="older textbooks"><td>Textbooks, older editions</td><td><input data-n type="number" min="0" value="0" aria-label="Older textbooks count"></td><td><input data-v type="number" min="0" step="0.05" value="0.25" aria-label="Value each"></td></tr>
+            <tr data-row="older / collectible books" data-collectible><td>Older or collectible (pre-1970, firsts, signed)</td><td><input data-n type="number" min="0" value="0" aria-label="Collectible count"></td><td><input data-v type="number" min="0" step="0.5" value="5.00" aria-label="Value each"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="field"><label for="ce-cond">Overall condition</label><select id="ce-cond" name="cond"><option value="1.15">Excellent &mdash; clean, tight, jackets present</option><option value="1" selected>Average reading wear</option><option value="0.6">Worn, musty or some damage</option></select></div>
+      <p class="fine">*Editable starting assumptions for what bulk buyers often pay per book &mdash; a small fraction of retail. Replace them if you have better information.</p>
+    </form>
+    <div class="result" id="coll-result" aria-live="polite"></div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow prose">
+    <h2>Why bulk offers look low &mdash; and how to raise yours</h2>
+    <p>A bulk buyer has to sort, clean, list, store and ship every book, and many will never sell. Offers therefore reflect the handful of books they expect to profit on, spread across the whole lot. That is why the most effective way to raise an offer is to <strong>identify and separate the valuable books first</strong>.</p>
+    <ol>
+      <li>Pull anything old, signed, illustrated, in a dust jacket, on local history or in a specialist subject.</li>
+      <li>Check a sample with the <a href="/tools/book-value/">value estimator</a> and <a href="/compare/">price comparison</a>.</li>
+      <li>Sell current textbooks through buyback &mdash; they carry real resale value.</li>
+      <li>Offer the remainder as a lot, or donate it. Read <a href="/guides/inherited-book-collection/">Inherited a book collection?</a></li>
+    </ol>
+  </div>
+</section>

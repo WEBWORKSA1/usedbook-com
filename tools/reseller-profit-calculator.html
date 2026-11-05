@@ -1,0 +1,40 @@
+---
+title: Book Reseller Profit Calculator - fees, postage, ROI and break-even
+description: Work out the real profit on a used book before you buy it. Enter price, fees, postage and cost to see profit, margin, return on cost and your break-even list price.
+scripts: [tools]
+---
+{% include page-hero.html eyebrow="Free tool" h1="Reseller Profit Calculator" lede="That $1 find only pays if the numbers do. Enter your marketplace&rsquo;s fees and your real postage to see what you keep." parent="Tools" parent_url="/tools/" crumb="Profit calculator" %}
+<section class="section-tight">
+  <div class="wrap tool-grid">
+    <form class="form card" id="profit-form">
+      <div class="row-2">
+        <div class="field"><label for="pr-cost">What you paid for the book ($)</label><input id="pr-cost" name="cost" type="number" step="0.01" min="0" value="1.00"></div>
+        <div class="field"><label for="pr-price">Your sale price ($)</label><input id="pr-price" name="price" type="number" step="0.01" min="0" value="14.99"></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label for="pr-credit">Shipping charged to buyer ($)</label><input id="pr-credit" name="credit" type="number" step="0.01" min="0" value="3.99"></div>
+        <div class="field"><label for="pr-ship">Your actual postage ($)</label><input id="pr-ship" name="ship" type="number" step="0.01" min="0" value="4.25"></div>
+      </div>
+      <div class="row-3">
+        <div class="field"><label for="pr-fee">Fee (% of total)</label><input id="pr-fee" name="fee" type="number" step="0.1" min="0" max="99" value="15"></div>
+        <div class="field"><label for="pr-fixed">Fixed fee per order ($)</label><input id="pr-fixed" name="fixed" type="number" step="0.01" min="0" value="0.30"></div>
+        <div class="field"><label for="pr-pack">Packaging ($)</label><input id="pr-pack" name="pack" type="number" step="0.01" min="0" value="0.35"></div>
+      </div>
+      <div class="field"><label for="pr-qty">Quantity</label><input id="pr-qty" name="qty" type="number" min="1" step="1" value="1"></div>
+      <p class="fine">Starting values are placeholders, not any marketplace&rsquo;s actual fees. Fee structures differ and change &mdash; use your current schedule.</p>
+    </form>
+    <div class="result" id="profit-result" aria-live="polite"></div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow prose">
+    <h2>The numbers that sink most book flips</h2>
+    <ul>
+      <li><strong>Postage creep.</strong> Heavy hardcovers and textbooks can cost more to ship than the buyer&rsquo;s shipping credit covers. Weigh before you list.</li>
+      <li><strong>Fees on shipping.</strong> Many marketplaces charge their percentage on the total including shipping, not just the item price.</li>
+      <li><strong>Slow sellers.</strong> A book that takes a year to sell ties up space and cash. Prefer titles with steady demand.</li>
+      <li><strong>Returns and condition disputes.</strong> Grade conservatively; one return can wipe out the profit on several sales.</li>
+    </ul>
+    <p>A common rule of thumb among resellers is to pass on books that won&rsquo;t clear a few dollars of profit after every cost &mdash; the calculator flags those as <em>thin</em>. For sourcing ideas see <a href="/guides/book-scouting-101/">Book scouting 101</a>.</p>
+  </div>
+</section>

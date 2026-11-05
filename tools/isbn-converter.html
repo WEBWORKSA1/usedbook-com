@@ -1,0 +1,25 @@
+---
+title: ISBN Converter and Validator - ISBN-10 to ISBN-13 and back
+description: Convert ISBN-10 to ISBN-13 and back, validate check digits, and calculate a missing check digit. Then look up the book or find where to sell it.
+scripts: [books, tools]
+---
+{% include page-hero.html eyebrow="Free tool" h1="ISBN Converter &amp; Validator" lede="Paste any ISBN &mdash; with or without hyphens. Enter 9 or 12 digits to calculate the missing check digit." parent="Tools" parent_url="/tools/" crumb="ISBN converter" %}
+<section class="section-tight">
+  <div class="wrap tool-grid">
+    <form class="form card" id="isbn-form">
+      <div class="field"><label for="isbn-in">ISBN</label><input id="isbn-in" name="isbn" type="text" inputmode="numeric" placeholder="e.g. 0-306-40615-2 or 978-0-306-40615-7" autocomplete="off"></div>
+      <p class="fine">Hyphens and spaces are ignored. An ISBN-10 may end in X, which stands for 10.</p>
+    </form>
+    <div class="result" id="isbn-result" aria-live="polite"></div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow prose">
+    <h2>ISBN-10 vs ISBN-13</h2>
+    <p>The International Standard Book Number identifies a specific edition and format of a book. Ten-digit ISBNs were used from 1970; since January 2007 all new ISBNs are 13 digits. Every ISBN-10 has an ISBN-13 equivalent made by adding the prefix <code>978</code> and recalculating the last digit. ISBNs beginning with <code>979</code> have no ISBN-10 version.</p>
+    <h2>How the check digit works</h2>
+    <p><strong>ISBN-10:</strong> multiply the digits by 10, 9, 8&hellip; down to 1 and add them up. The total must divide evenly by 11. If the check value works out to 10, it is written as X.</p>
+    <p><strong>ISBN-13:</strong> multiply the digits alternately by 1 and 3 and add them up. The total must divide evenly by 10.</p>
+    <p>A failed check usually means a typo or a transposed pair of digits &mdash; this tool shows the digit the number <em>should</em> end with so you can spot the mistake. Learn more in <a href="/guides/isbn-explained/">ISBNs explained</a>.</p>
+  </div>
+</section>

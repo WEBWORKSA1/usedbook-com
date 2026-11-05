@@ -1,0 +1,71 @@
+---
+title: Book Value Estimator - how much is my book worth?
+description: Estimate what a used or old book is worth. Score edition, condition, dust jacket, signatures, scarcity and demand to get a value band and the best place to sell it.
+scripts: [tools]
+faq:
+  - q: Is this an appraisal?
+    a: No. It is an educational estimate based on the factors booksellers weigh. For insurance, tax or high-value sales you need a written appraisal from a qualified appraiser.
+  - q: How do I check how many copies are for sale?
+    a: Search the exact title and edition on AbeBooks and eBay. Count the comparable copies (same edition, similar condition). Fewer than five is scarce; a hundred or more is common.
+  - q: Why does age count for so little?
+    a: Because survival rates are high for most printed books. Plenty of 19th-century books sell for a few dollars, while some 1990s first printings sell for thousands. Demand and edition matter more than the date.
+---
+{% include page-hero.html eyebrow="Free tool" h1="Book Value Estimator" lede="Answer ten quick questions. See which factors raise or lower value, the likely price band, and the smartest way to sell." parent="Tools" parent_url="/tools/" crumb="Book value" %}
+<section class="section-tight">
+  <div class="wrap tool-grid">
+    <form class="form card" id="value-form">
+      <div class="field"><label for="bv-title">Book title (optional)</label><input id="bv-title" name="title" type="text" placeholder="For your reference"></div>
+      <div class="field"><label for="bv-cat">What kind of book is it?</label>
+        <select id="bv-cat" name="cat">
+          <option value="mass">Mass-market or common paperback</option><option value="trade">Recent trade paperback</option><option value="hc">Recent, widely printed hardcover</option>
+          <option value="tbnew">Current-edition textbook</option><option value="tbold">Older textbook edition</option><option value="oop">Out-of-print or specialist nonfiction</option>
+          <option value="kids">Children&rsquo;s or illustrated book</option><option value="modern">20th-century literature / modern first</option><option value="antiq">Antiquarian (before 1900)</option>
+          <option value="bible">Old Bible or religious book</option><option value="local">Local history, maps or ephemera</option>
+        </select></div>
+      <div class="row-2">
+        <div class="field"><label for="bv-age">Age</label><select id="bv-age" name="age"><option value="0">Under 20 years</option><option value="1">20&ndash;50 years</option><option value="2">50&ndash;100 years</option><option value="3">100&ndash;200 years</option><option value="5">Over 200 years</option></select></div>
+        <div class="field"><label for="bv-ed">Edition</label><select id="bv-ed" name="edition"><option value="unknown">Not sure / later edition</option><option value="first1">First edition, first printing</option><option value="firstlater">First edition, later printing</option><option value="bce">Book club edition</option><option value="reprint">Reprint / print-on-demand</option></select><span class="help"><a href="/tools/first-edition-checker/">Check with the first-edition tool</a></span></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label for="bv-dj">Dust jacket</label><select id="bv-dj" name="jacket"><option value="na">Paperback / never had one</option><option value="good">Original jacket, good condition</option><option value="worn">Jacket worn, torn or price-clipped</option><option value="missing">Jacket missing</option></select></div>
+        <div class="field"><label for="bv-cond">Condition</label><select id="bv-cond" name="cond"><option value="fine">As New / Fine</option><option value="vg" selected>Very Good</option><option value="good">Good</option><option value="fair">Fair</option><option value="poor">Poor</option></select><span class="help"><a href="/tools/condition-grader/">Not sure? Use the grader</a></span></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label for="bv-sig">Signed or inscribed?</label><select id="bv-sig" name="signed"><option value="none">No</option><option value="author">Signed by the author</option><option value="assoc">Inscribed to a notable person</option><option value="plate">Signed bookplate pasted in</option></select></div>
+        <div class="field"><label for="bv-sc">Comparable copies for sale online</label><select id="bv-sc" name="scarcity"><option value="unknown">Haven&rsquo;t checked</option><option value="rare">Fewer than 5</option><option value="few">5&ndash;19</option><option value="some">20&ndash;99</option><option value="many">100 or more</option></select></div>
+      </div>
+      <div class="field"><label for="bv-dm">Collector demand for this author or subject</label><select id="bv-dm" name="demand"><option value="unknown">Not sure</option><option value="high">High &mdash; famous title or author</option><option value="niche">Niche but active</option></select></div>
+      <label class="check"><input type="checkbox" name="exlib"> Ex-library (stamps, pockets, spine labels)</label>
+      <label class="check"><input type="checkbox" name="marked"> Heavy highlighting or notes</label>
+      <button class="btn btn-primary" type="submit">Show my estimate</button>
+    </form>
+    <div class="result" id="value-result" aria-live="polite"></div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow prose">
+    <h2>What actually makes a used book valuable</h2>
+    <p>Booksellers often sum it up as <strong>demand, edition, condition</strong> &mdash; in that order. A book nobody wants is worth little in any condition. A sought-after book is worth most as a first printing in fine condition with its original dust jacket, and falls sharply as each of those slips.</p>
+    <h3>The factors this estimator weighs</h3>
+    <ul>
+      <li><strong>Category</strong> sets the starting point: common paperbacks and recent bestsellers were printed in huge numbers, while antiquarian, specialist and local-history books start higher.</li>
+      <li><strong>Edition</strong> matters most for collectible categories. A first printing can be worth many times a later printing; a book club edition rarely carries collector value.</li>
+      <li><strong>Dust jacket</strong> condition can account for a large share of a modern first edition&rsquo;s value. A missing jacket on a collectible first hits hard.</li>
+      <li><strong>Condition</strong> moves value in steps. Collectors pay premiums for Fine copies and discount heavily for wear, stains and repairs.</li>
+      <li><strong>Signatures</strong> add value when genuine and by the author; inscriptions to notable people (association copies) add more.</li>
+      <li><strong>Scarcity and demand</strong> decide whether anyone will pay. Count comparable copies online, then check <em>sold</em> prices.</li>
+    </ul>
+    <h3>Turn the estimate into a price</h3>
+    <ol>
+      <li>Identify the exact edition (publisher, year, printing).</li>
+      <li>Search sold listings for that edition and condition; asking prices are a ceiling, not a value.</li>
+      <li>Discount for any flaws your copy has that the comparables do not.</li>
+      <li>For anything in the top two bands, get a second opinion before you accept an offer.</li>
+    </ol>
+    <p>Read the full method in <a href="/guides/how-much-is-my-book-worth/">How much is my old book worth?</a></p>
+  </div>
+  <div class="wrap narrow faq mt-3">
+    <h2>Questions</h2>
+    {% for f in page.faq %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endfor %}
+  </div>
+</section>

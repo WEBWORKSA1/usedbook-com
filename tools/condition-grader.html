@@ -1,0 +1,52 @@
+---
+title: Book Condition Grader - As New, Fine, Very Good, Good, Fair, Poor
+description: Grade a used book's condition the way booksellers do. Tick the flaws you see and get a standard grade plus a copy-ready condition note for your listing.
+scripts: [tools]
+---
+{% include page-hero.html eyebrow="Free tool" h1="Book Condition Grader" lede="Tick every flaw you can see. The grade is capped by the worst defect &mdash; exactly how careful sellers grade." parent="Tools" parent_url="/tools/" crumb="Condition grader" %}
+<section class="section-tight">
+  <div class="wrap tool-grid">
+    <form class="form card" id="grade-form">
+      <span class="legend">The book itself</span>
+      <label class="check"><input type="checkbox" name="defect" data-cap="6" data-note="faint signs of reading"> Has been read (faint spine creases, slight handling)</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="5" data-note="light shelf wear to edges"> Light shelf wear to edges</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="4" data-note="corners and spine ends bumped or rubbed"> Bumped or rubbed corners / spine ends</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="4" data-note="previous owner's name or bookplate"> Previous owner&rsquo;s name, bookplate or gift inscription</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="4" data-note="spine slightly cocked"> Spine slightly cocked (leans when standing)</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="4" data-note="light foxing, toning or sunned spine"> Light foxing, toned pages or sun-faded spine</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="4" data-note="remainder mark on edge"> Remainder mark (ink stamp or line on page edges)</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="3" data-note="underlining, highlighting or notes"> Underlining, highlighting or notes</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="3" data-note="hinges cracked or text block loose"> Cracked hinges or loose text block</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="3" data-note="small tears or creased pages"> Small tears or creased pages</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="3" data-note="ex-library with usual markings"> Ex-library markings (stamps, pockets, labels)</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="2" data-note="moderate staining or water marks"> Moderate staining or water marks</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="1" data-note="detached boards or broken binding"> Detached covers or broken binding</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="1" data-note="missing pages, plates or maps"> Missing pages, plates or maps</label>
+      <label class="check"><input type="checkbox" name="defect" data-cap="1" data-note="mould, strong odour or active damage"> Mould, strong odour or active pest damage</label>
+      <div class="field mt-2"><label for="cg-dj">Dust jacket</label>
+        <select id="cg-dj" name="dj"><option value="na">Paperback / not applicable</option><option value="none">Hardcover, jacket missing</option><option value="fine">Jacket bright, no flaws</option><option value="vg">Small chips or tears, light rubbing</option><option value="good">Larger chips, tears or fading</option><option value="poor">Heavily damaged jacket</option></select></div>
+      <label class="check"><input type="checkbox" name="clipped"> Jacket price-clipped (corner cut off)</label>
+      <label class="check"><input type="checkbox" name="bce"> Book club edition</label>
+    </form>
+    <div class="result" id="grade-result" aria-live="polite"></div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow prose">
+    <h2>The standard grading scale</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Grade</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>As New</td><td>Unread and flawless, as issued. Rare for anything but recent books.</td></tr>
+        <tr><td>Fine (F)</td><td>Close to As New; no defects worth mentioning.</td></tr>
+        <tr><td>Near Fine (NF)</td><td>Approaching Fine with one or two very small flaws.</td></tr>
+        <tr><td>Very Good (VG)</td><td>Used but well cared for; some wear, no tears or major defects; flaws described.</td></tr>
+        <tr><td>Good (G)</td><td>An average, complete used copy with wear and possibly marks. Despite the name, this is the middle of the scale.</td></tr>
+        <tr><td>Fair</td><td>Worn and possibly damaged but complete; a reading copy.</td></tr>
+        <tr><td>Poor</td><td>Heavily damaged or incomplete. Usually only worth it for scarce texts.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Dust jackets are graded separately, written as <em>book grade / jacket grade</em> (for example, &ldquo;Very Good / Good&rdquo;). Faults such as ex-library status, book club editions, price-clipped jackets and remainder marks are always mentioned in the description, whatever the grade.</p>
+    <p>Grading is not an exact science and sellers differ. The golden rule: <strong>grade conservatively and describe every flaw</strong>. Buyers forgive a modest grade; they return books that were oversold. Learn more in <a href="/guides/book-condition-grades/">Book condition grades explained</a>.</p>
+  </div>
+</section>
