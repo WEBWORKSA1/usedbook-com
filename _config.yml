@@ -37,6 +37,7 @@ exclude:
   - BUILD-PROMPTS.md
   - RESEARCH.md
   - scripts/
+  - automation/
   - Gemfile
   - Gemfile.lock
   - node_modules/

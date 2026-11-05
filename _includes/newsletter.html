@@ -1,7 +1,7 @@
 <form class="newsletter" data-form="Newsletter signup" data-success="You&rsquo;re in. Look out for the next issue of The Used Shelf." novalidate>
   <label for="nl-email-{{ include.id | default: 'f' }}" class="nl-label">The Used Shelf &mdash; a short e-mail with value-finding tips, notable sales and book-sale season reminders.</label>
   <div class="nl-row">
-    <input id="nl-email-{{ include.id | default: 'f' }}" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+    <input id="nl-email-{{ include.id | default: 'f' }}" type="email" name="email" placeholder="Your e-mail address" autocomplete="email" required>
     <button class="btn btn-accent" type="submit">Subscribe</button>
   </div>
   <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
