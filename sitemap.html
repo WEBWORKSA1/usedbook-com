@@ -1,0 +1,24 @@
+---
+title: Sitemap
+description: Every page on UsedBook.com - tools, guides, community pages and policies.
+---
+{% include page-hero.html eyebrow="Sitemap" h1="Everything on UsedBook.com" crumb="Sitemap" %}
+<section class="section">
+  <div class="wrap grid grid-3">
+    <div><h2 style="font-size:1.3rem">Start here</h2><ul>
+      <li><a href="/">Home</a></li><li><a href="/compare/">Compare used prices</a></li><li><a href="/sell/">Where to sell</a></li><li><a href="/get-offers/">Get offers</a></li><li><a href="/bookstores/">Bookstore &amp; book sale finder</a></li><li><a href="/videos/">Videos</a></li><li><a href="/glossary/">Glossary</a></li>
+    </ul>
+    <h2 style="font-size:1.3rem">Tools</h2><ul>
+      <li><a href="/tools/">All tools</a></li><li><a href="/tools/book-value/">Book value estimator</a></li><li><a href="/tools/condition-grader/">Condition grader</a></li><li><a href="/tools/first-edition-checker/">First-edition checker</a></li><li><a href="/tools/isbn-converter/">ISBN converter</a></li><li><a href="/tools/reseller-profit-calculator/">Reseller profit calculator</a></li><li><a href="/tools/collection-estimator/">Collection estimator</a></li>
+    </ul></div>
+    <div><h2 style="font-size:1.3rem">Guides</h2><ul>
+      {% assign gs = site.guides | sort: 'title' %}{% for g in gs %}<li><a href="{{ g.url }}">{{ g.title }}</a></li>{% endfor %}
+    </ul></div>
+    <div><h2 style="font-size:1.3rem">Community</h2><ul>
+      <li><a href="/contest/">Monthly contest</a></li><li><a href="/support/">Support us</a></li><li><a href="/careers/">Careers &amp; talent</a></li><li><a href="/advertise/">Advertise &amp; partner</a></li>
+    </ul>
+    <h2 style="font-size:1.3rem">Company &amp; legal</h2><ul>
+      <li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/editorial-policy/">Editorial policy</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="/cookies/">Cookies</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/trademark/">Trademark &amp; copyright</a></li><li><a href="/feed.xml">RSS feed</a></li><li><a href="/sitemap.xml">XML sitemap</a></li>
+    </ul></div>
+  </div>
+</section>

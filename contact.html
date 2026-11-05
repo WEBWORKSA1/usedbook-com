@@ -1,0 +1,27 @@
+---
+title: Contact UsedBook.com
+description: Contact UsedBook.com with questions, corrections, collection inquiries, advertising, sponsorship, partnership or domain inquiries.
+---
+{% include page-hero.html eyebrow="Contact" h1="Talk to us" lede="We read everything and reply within {{ site.reply_time }}. For collection offers, the fastest route is the Get Offers form." crumb="Contact" %}
+<section class="section">
+  <div class="wrap split">
+    <div class="form-card">
+      <form class="form" data-form="Contact form" data-success="Thanks for your message! We&rsquo;ll reply within {{ site.reply_time }}.">
+        <div class="field"><label for="ct-topic">Topic</label>
+          <select id="ct-topic" name="topic" required><option value="">Choose</option><option>General question</option><option>Selling a collection</option><option>Valuing a book</option><option>Correction or feedback</option><option>Advertising</option><option>Sponsorship</option><option>Partnership</option><option>Domain / website inquiry</option><option>Press</option><option>Technical problem</option></select></div>
+        <div class="row-2">
+          <div class="field"><label for="ct-name">Name</label><input id="ct-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="ct-email">E-mail</label><input id="ct-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="ct-msg">Message</label><textarea id="ct-msg" name="message" required></textarea></div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-accent btn-lg" type="submit">Send message</button>
+      </form>
+    </div>
+    <div>
+      <div class="card"><h3>Prefer e-mail?</h3><p>Use the button to open your e-mail app with our address filled in.</p><p><a class="btn btn-primary" href="#" data-mailto="UsedBook.com inquiry">E-mail us</a></p></div>
+      <div class="card mt-2"><h3>Website, domain, sponsorship &amp; partnership</h3><p>Interested in this website, the domain name, sponsorship, advertisement or partnership?</p><p><a class="btn btn-ghost" href="{{ site.contact_url }}" target="_blank" rel="noopener">web.works/contact</a></p></div>
+      <div class="card mt-2"><h3>Quick links</h3><ul class="list-check"><li><a href="/get-offers/">Sell a collection or value a book</a></li><li><a href="/advertise/">Advertising options</a></li><li><a href="/careers/">Work with us</a></li><li><a href="/trademark/">Copyright or trademark concern</a></li></ul></div>
+    </div>
+  </div>
+</section>
