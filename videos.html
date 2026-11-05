@@ -1,0 +1,49 @@
+---
+title: Used book videos - first editions, book care and repair
+description: Hand-picked videos from libraries, archives and booksellers on identifying first editions, caring for books and simple repairs. Click to play - privacy-enhanced embeds.
+---
+{% include page-hero.html eyebrow="Video library" h1="Learn by watching" lede="Short, practical videos from libraries, preservation labs and booksellers. Each one loads only when you press play." crumb="Videos" %}
+<section class="section-tight">
+  <div class="wrap">
+    <div class="filter-bar" data-filter-group="#vid-grid" role="group" aria-label="Filter videos">
+      <button type="button" class="chip active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-filter="identify" aria-pressed="false">Identify &amp; value</button>
+      <button type="button" class="chip" data-filter="care" aria-pressed="false">Book care</button>
+      <button type="button" class="chip" data-filter="repair" aria-pressed="false">Repair</button>
+    </div>
+    <div class="grid grid-3" id="vid-grid">
+      {% for v in site.data.videos %}
+      <div class="card" data-cat="{{ v.cat }}">
+        {% include video.html id=v.id title=v.title channel=v.channel %}
+        <p class="mt-2 mb-0">{{ v.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="fine mt-3">Videos are embedded from YouTube using privacy-enhanced mode and remain the property of their creators. Repair techniques shown are for ordinary reading copies &mdash; do not attempt repairs on rare or valuable books; consult a conservator.</p>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap split">
+    <div class="prose">
+      <h2>Pair a video with a guide</h2>
+      <ul>
+        <li>Watched the first-edition video? Try the <a href="/tools/first-edition-checker/">First-Edition Checker</a> on your own books.</li>
+        <li>Book care videos go deeper in <a href="/guides/how-to-store-and-clean-books/">How to store and clean used books</a>.</li>
+        <li>Before any repair, read <a href="/guides/basic-book-repair/">Basic book repair: what to fix and what to leave alone</a>.</li>
+      </ul>
+    </div>
+    <div class="form-card">
+      <h2 style="font-size:1.4rem">Suggest a video or make one with us</h2>
+      <form class="form" data-form="Video suggestion" data-success="Thanks for the suggestion! We review every one.">
+        <div class="field"><label for="vs-url">YouTube link</label><input id="vs-url" name="video_url" type="url" placeholder="https://www.youtube.com/watch?v=" required></div>
+        <div class="field"><label for="vs-why">Why is it useful?</label><textarea id="vs-why" name="why"></textarea></div>
+        <div class="row-2">
+          <div class="field"><label for="vs-name">Name</label><input id="vs-name" name="name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="vs-email">E-mail</label><input id="vs-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-primary" type="submit">Send suggestion</button>
+      </form>
+    </div>
+  </div>
+</section>

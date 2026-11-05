@@ -1,0 +1,67 @@
+---
+title: Monthly contest - best used book find
+description: Share your best used-book find for a chance to win. Free to enter, judged on story, value and rarity. Read the official rules.
+---
+{% include page-hero.html eyebrow="Community contest" h1="The Best Used Book Find" lede="Thrift-store treasure, library-sale gem, a first edition hiding in a $1 bin? Tell us the story. Free to enter." crumb="Contest" %}
+<section class="section-tight">
+  <div class="wrap split">
+    <div>
+      <div class="card">
+        <p class="eyebrow">{{ site.contest.round }} &middot; {% if site.contest.status == 'open' %}Open for entries{% elsif site.contest.status == 'judging' %}Judging in progress{% else %}Closed{% endif %}</p>
+        <h2 style="font-size:1.6rem">Theme: {{ site.contest.theme }}</h2>
+        <div class="stats" style="grid-template-columns:1fr 1fr">
+          <div class="stat"><b style="font-size:1.3rem">{{ site.contest.prize }}</b><span>Prize</span></div>
+          <div class="stat"><b style="font-size:1.3rem">{{ site.contest.deadline }}</b><span>Entry deadline</span></div>
+        </div>
+        <h3 class="mt-2">How entries are judged</h3>
+        <ul class="list-check">
+          <li><strong>Story (40%)</strong> &mdash; where and how you found it</li>
+          <li><strong>Find factor (40%)</strong> &mdash; rarity, value or sheer delight versus price paid</li>
+          <li><strong>Photo (20%)</strong> &mdash; clear shots of the book and its key details</li>
+        </ul>
+        <p class="fine">Want to fund a bigger prize pool or sponsor a round? <a href="/advertise/">Sponsor the contest</a>.</p>
+      </div>
+    </div>
+    <div class="form-card">
+      <h2 style="font-size:1.4rem">Enter now</h2>
+      {% if site.contest.status == 'open' %}
+      <form class="form" data-form="Contest entry" data-success="You&rsquo;re entered! We&rsquo;ll contact winners by e-mail after the deadline.">
+        <div class="row-2">
+          <div class="field"><label for="ct-title">Book title</label><input id="ct-title" name="book_title" type="text" required></div>
+          <div class="field"><label for="ct-paid">Price you paid</label><input id="ct-paid" name="price_paid" type="text" placeholder="$" required></div>
+        </div>
+        <div class="field"><label for="ct-where">Where did you find it?</label><input id="ct-where" name="where_found" type="text" placeholder="e.g. church rummage sale, Ohio" required></div>
+        <div class="field"><label for="ct-story">Your story (up to 300 words)</label><textarea id="ct-story" name="story" maxlength="2200" required></textarea></div>
+        <div class="field"><label for="ct-photo">Photo link</label><input id="ct-photo" name="photo_link" type="url" placeholder="Google Drive, Dropbox, Imgur or Instagram link" required></div>
+        <div class="row-2">
+          <div class="field"><label for="ct-name">Name</label><input id="ct-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="ct-email">E-mail</label><input id="ct-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <label class="check"><input type="checkbox" name="rules" value="Accepted" required> I am 18 or older and accept the official rules below.</label>
+        <label class="check"><input type="checkbox" name="feature_ok" value="Yes"> UsedBook.com may feature my entry (first name and city only).</label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-accent btn-lg" type="submit">Submit my find</button>
+      </form>
+      {% else %}
+      <p>Entries for this round are closed. Join the newsletter to hear when the next round opens.</p>
+      {% include newsletter.html id="contest" %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap narrow legal prose">
+    <h2>Official rules (summary)</h2>
+    <ol>
+      <li><strong>No purchase necessary.</strong> Entry is free. A purchase does not improve your chances.</li>
+      <li><strong>Eligibility.</strong> Open to individuals aged 18 or older where such contests are permitted by law. Void where prohibited. Employees and contractors of UsedBook.com and their immediate families may not enter.</li>
+      <li><strong>Entry period.</strong> Entries must be received by 11:59 p.m. Eastern Time on the deadline shown above. One entry per person per round.</li>
+      <li><strong>Judging.</strong> Entries are judged by the UsedBook.com editorial team using the published criteria. Decisions are final.</li>
+      <li><strong>Prize.</strong> The prize shown above is awarded to one winner per round. No cash alternative unless required by law. Winners may be responsible for applicable taxes.</li>
+      <li><strong>Winner notification.</strong> Winners are contacted by e-mail within 14 days of the deadline and must respond within 14 days, or an alternate winner may be selected.</li>
+      <li><strong>Your content.</strong> You confirm the entry is your own and that you have the right to share the photo. With your permission we may feature your first name, city, story and photo.</li>
+      <li><strong>Privacy.</strong> Entry details are used only to run the contest. See our <a href="/privacy/">Privacy Policy</a>.</li>
+      <li><strong>General.</strong> UsedBook.com may modify or cancel a round if it cannot be run as planned. This contest is not sponsored, endorsed or administered by any social media platform or marketplace.</li>
+    </ol>
+  </div>
+</section>

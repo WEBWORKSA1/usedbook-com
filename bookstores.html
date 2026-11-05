@@ -1,0 +1,87 @@
+---
+title: Used bookstore and book sale finder
+description: Find used bookstores, library book sales, thrift stores and Little Free Libraries near you, explore famous secondhand bookshops worldwide, and list your own store or book sale.
+scripts: []
+---
+{% include page-hero.html eyebrow="Find books locally" h1="Used bookstore &amp; book sale finder" lede="Use your location or type a city to open live map searches for used bookstores, library book sales, thrift stores and Little Free Libraries." crumb="Bookstores" %}
+<section class="section-tight">
+  <div class="wrap">
+    <div class="form-card">
+      <form class="form" id="near-form" onsubmit="return false">
+        <div class="search-row">
+          <label class="sr-only" for="near-city">City or postal code</label>
+          <input id="near-city" name="city" type="search" placeholder="City, neighbourhood or postal code">
+          <button class="btn btn-primary" type="button" id="near-go">Search this area</button>
+          <button class="btn btn-ghost" type="button" id="near-me">Use my location</button>
+        </div>
+        <p class="fine" id="near-status" aria-live="polite">Your location is used only in your browser to build the map links. We never store it.</p>
+      </form>
+      <div class="grid grid-4 mt-2" id="near-links">
+        <a class="card card-link" data-near="used bookstore" href="https://www.google.com/maps/search/used+bookstore" target="_blank" rel="noopener"><div class="card-icon">&#128218;</div><h3>Used bookstores</h3><p>Secondhand and antiquarian shops.</p></a>
+        <a class="card card-link" data-near="library book sale" href="https://www.google.com/maps/search/library+book+sale" target="_blank" rel="noopener"><div class="card-icon accent">&#127963;</div><h3>Library book sales</h3><p>Friends of the Library sales and shops.</p></a>
+        <a class="card card-link" data-near="thrift store books" href="https://www.google.com/maps/search/thrift+store+books" target="_blank" rel="noopener"><div class="card-icon">&#9851;</div><h3>Thrift stores</h3><p>Charity shops with book sections.</p></a>
+        <a class="card card-link" href="https://littlefreelibrary.org/map/" target="_blank" rel="noopener"><div class="card-icon accent">&#127969;</div><h3>Little Free Libraries</h3><p>Take a book, share a book &mdash; official map.</p></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Worth the trip</p><h2>Famous used bookstores and book towns</h2><p>Destinations every used-book lover should know. Tap for directions and opening hours.</p></div>
+    <div class="grid grid-3">
+      {% for s in site.data.stores %}
+      <a class="card card-link" href="https://www.google.com/maps/search/?api=1&amp;query={{ s.name | append: ' ' | append: s.city | url_encode }}" target="_blank" rel="noopener"><span class="badge">{{ s.country }}</span><h3>{{ s.name }}</h3><p><strong>{{ s.city }}</strong> &mdash; {{ s.note }}</p><span class="go">Directions &#8599;</span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap split">
+    <div class="prose">
+      <h2>How to find book sales most people miss</h2>
+      <ul>
+        <li><strong>Friends of the Library groups</strong> run recurring sales, often with a members-only preview the night before. Joining usually costs little and gets you first pick.</li>
+        <li><strong>Bag days</strong> on the last day of a sale let you fill a bag for a flat price &mdash; ideal for reading copies.</li>
+        <li><strong>University and college sales</strong> surface academic and specialist titles that rarely show up at thrift stores.</li>
+        <li><strong>Estate sales</strong> listed online often include photos of bookshelves. Zoom in before you go.</li>
+        <li><strong>Church, school and charity fundraisers</strong> are usually advertised locally rather than online &mdash; check community boards.</li>
+      </ul>
+      <p>More tactics in <a href="/guides/library-book-sales/">Library book sales: how to find them and shop like a pro</a>.</p>
+    </div>
+    <div class="form-card" id="list-your-store">
+      <p class="eyebrow">For stores &amp; organisers</p>
+      <h2 style="font-size:1.5rem">List your bookstore or book sale</h2>
+      <p class="muted">Free basic listings for independent used bookstores and nonprofit book sales. Featured placement available.</p>
+      <form class="form" data-form="Bookstore or book sale listing" data-success="Thanks! We&rsquo;ll review your listing and confirm by e-mail.">
+        <div class="field"><label for="ls-type">Listing type</label><select id="ls-type" name="listing_type" required><option value="">Choose</option><option>Used bookstore</option><option>Library / Friends book sale</option><option>Charity or school book sale</option><option>Book fair</option><option>Online used bookseller</option></select></div>
+        <div class="field"><label for="ls-name">Store or event name</label><input id="ls-name" name="listing_name" type="text" required></div>
+        <div class="row-2">
+          <div class="field"><label for="ls-city">City / region</label><input id="ls-city" name="city" type="text" required></div>
+          <div class="field"><label for="ls-dates">Dates or hours</label><input id="ls-dates" name="dates_hours" type="text"></div>
+        </div>
+        <div class="field"><label for="ls-url">Website or event page</label><input id="ls-url" name="website" type="url" placeholder="https://"></div>
+        <div class="field"><label for="ls-feat">Interested in featured placement?</label><select id="ls-feat" name="featured_interest"><option>Free listing only</option><option>Yes &mdash; send featured options</option></select></div>
+        <div class="row-2">
+          <div class="field"><label for="ls-cn">Your name</label><input id="ls-cn" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="ls-ce">E-mail</label><input id="ls-ce" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-accent" type="submit">Submit listing</button>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var c=document.getElementById('near-city'),st=document.getElementById('near-status'),links=document.querySelectorAll('[data-near]');
+  function set(where){links.forEach(function(a){var q=a.getAttribute('data-near')+(where?' '+where:'');a.href='https://www.google.com/maps/search/'+encodeURIComponent(q).replace(/%20/g,'+');});}
+  function setLL(lat,lng){links.forEach(function(a){a.href='https://www.google.com/maps/search/'+encodeURIComponent(a.getAttribute('data-near')).replace(/%20/g,'+')+'/@'+lat.toFixed(4)+','+lng.toFixed(4)+',13z';});}
+  document.getElementById('near-go').addEventListener('click',function(){var v=c.value.trim();set(v);st.textContent=v?'Links updated for “'+v+'”. Pick a category below.':'Showing results near you on the map.';});
+  c.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('near-go').click();}});
+  document.getElementById('near-me').addEventListener('click',function(){
+    if(!navigator.geolocation){st.textContent='Location is not available in this browser. Type a city instead.';return;}
+    st.textContent='Finding your location…';
+    navigator.geolocation.getCurrentPosition(function(p){setLL(p.coords.latitude,p.coords.longitude);st.textContent='Links now centre on your location. Pick a category below.';},function(){st.textContent='Location permission was declined. Type a city instead.';},{timeout:10000,maximumAge:600000});
+  });
+})();
+</script>

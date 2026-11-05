@@ -1,0 +1,69 @@
+---
+title: Support UsedBook.com
+description: Help keep UsedBook.com's tools and guides free. Your support funds operations, promotion, new talent, contests and prizes.
+---
+{% include page-hero.html eyebrow="Support us" h1="Keep the tools free. Help us grow." lede="UsedBook.com is independent and free to use. Reader support pays for hosting and data, new guides and tools, outreach, contributors, and the prizes in our monthly contest." crumb="Support" %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">Where your support goes</p><h2>Every contribution has a job</h2></div>
+    <div class="grid grid-4">
+      <div class="card"><div class="card-icon">&#9881;</div><h3>Operations</h3><p>Hosting, domain, data services, security and keeping every tool fast and free.</p></div>
+      <div class="card"><div class="card-icon accent">&#128227;</div><h3>Promotion &amp; marketing</h3><p>Reaching more readers, students and families who are about to give valuable books away.</p></div>
+      <div class="card"><div class="card-icon">&#129309;</div><h3>Hiring talent</h3><p>Paying book scouts, writers, video makers and developers to build better resources.</p></div>
+      <div class="card"><div class="card-icon accent">&#127942;</div><h3>Contests &amp; prizes</h3><p>Funding monthly prizes that reward great finds and good book stewardship.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">Choose a level</p><h2>Support tiers</h2></div>
+    <div class="grid grid-4">
+      <div class="card tier"><h3>Reader</h3><div class="price">$5</div><ul class="list-check"><li>Our thanks in the newsletter</li><li>Keeps one tool running for a week</li></ul><button class="btn btn-ghost btn-block" type="button" data-tier="Reader $5">Choose</button></div>
+      <div class="card tier"><h3>Bookworm</h3><div class="price">$15</div><ul class="list-check"><li>Everything in Reader</li><li>Funds a new guide section</li></ul><button class="btn btn-ghost btn-block" type="button" data-tier="Bookworm $15">Choose</button></div>
+      <div class="card tier"><h3>Collector</h3><div class="price">$50</div><ul class="list-check"><li>Supporter credit on our About page (optional)</li><li>Adds to a monthly prize</li></ul><button class="btn btn-primary btn-block" type="button" data-tier="Collector $50">Choose</button></div>
+      <div class="card tier"><h3>Patron</h3><div class="price">$250+</div><ul class="list-check"><li>Name a contest round</li><li>Direct line for feature ideas</li></ul><button class="btn btn-ghost btn-block" type="button" data-tier="Patron $250+">Choose</button></div>
+    </div>
+    {% assign dl = site.donate_links %}
+    {% if dl.paypal != '' or dl.stripe != '' or dl.buymeacoffee != '' %}
+    <div class="callout mt-3"><div><p class="callout-h">Give securely now</p><p>Payments are processed by the provider you choose; we never see your card details.</p></div><div class="callout-actions">
+      {% if dl.stripe != '' %}<a class="btn btn-accent" href="{{ dl.stripe }}" target="_blank" rel="noopener">Card (Stripe)</a>{% endif %}
+      {% if dl.paypal != '' %}<a class="btn btn-primary" href="{{ dl.paypal }}" target="_blank" rel="noopener">PayPal</a>{% endif %}
+      {% if dl.buymeacoffee != '' %}<a class="btn btn-ghost" href="{{ dl.buymeacoffee }}" target="_blank" rel="noopener">Buy us a coffee</a>{% endif %}
+    </div></div>
+    {% endif %}
+  </div>
+</section>
+<section class="section" id="pledge">
+  <div class="wrap split">
+    <div class="prose">
+      <h2>Pledge your support</h2>
+      <p>Tell us how you&rsquo;d like to help and we&rsquo;ll reply with a secure payment link for your chosen amount, or details for sponsorship and in-kind support. You can also direct your contribution to a specific purpose.</p>
+      <h3>Other ways to help</h3>
+      <ul>
+        <li>Share a guide with someone clearing out a home library.</li>
+        <li>Enter the <a href="/contest/">monthly contest</a> or suggest a <a href="/videos/">video</a>.</li>
+        <li>Booksellers: become a <a href="/get-offers/#partner">buyer partner</a>.</li>
+        <li>Businesses: <a href="/advertise/">sponsor a tool, guide or contest round</a>.</li>
+      </ul>
+      <p class="fine">UsedBook.com is not a registered charity; contributions are not tax-deductible.</p>
+    </div>
+    <div class="form-card">
+      <form class="form" data-form="Support pledge" data-success="Thank you! We&rsquo;ll send your secure payment link and a proper thank-you shortly.">
+        <div class="field"><label for="sp-tier">Amount or tier</label><input id="sp-tier" name="amount" type="text" placeholder="e.g. Collector $50 or $20" required></div>
+        <div class="field"><label for="sp-for">Direct it to</label><select id="sp-for" name="purpose"><option>Wherever it&rsquo;s needed most</option><option>Operations</option><option>Promotion &amp; marketing</option><option>Hiring talent</option><option>Contests &amp; prizes</option></select></div>
+        <div class="field"><label for="sp-freq">Frequency</label><select id="sp-freq" name="frequency"><option>One time</option><option>Monthly</option><option>Yearly</option></select></div>
+        <div class="row-2">
+          <div class="field"><label for="sp-name">Name</label><input id="sp-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="sp-email">E-mail</label><input id="sp-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field"><label for="sp-msg">Message (optional)</label><textarea id="sp-msg" name="message"></textarea></div>
+        <label class="check"><input type="checkbox" name="credit_ok" value="Yes"> You may thank me publicly by name.</label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-accent btn-lg" type="submit">Pledge support</button>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-tier]').forEach(function(b){b.addEventListener('click',function(){var i=document.getElementById('sp-tier');i.value=b.getAttribute('data-tier');document.getElementById('pledge').scrollIntoView({behavior:'smooth'});setTimeout(function(){document.getElementById('sp-name').focus()},500);});});
+</script>
