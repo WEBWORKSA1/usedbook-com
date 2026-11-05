@@ -210,13 +210,14 @@
   quickTool($('#sell-form'), null, $('#s-sell'), $('#s-match'));
 
   /* ---------- Home: trending (auto-updated) + daily subject shelf ---------- */
+  var RESTING = '<div class="empty" style="grid-column:1/-1">The live catalogue is taking a short break. <a href="/search/?q=classics">Browse classics</a> or search any title above.</div>';
   var tr = $('#trending');
   if (tr && !tr.children.length) {
     tr.innerHTML = skeletons(6);
     getJSON(OL + '/trending/weekly.json?limit=12').then(function (j) {
       var w = (j.works || []).slice(0, 12);
-      tr.innerHTML = w.length ? w.map(card).join('') : '';
-    }).catch(function () { tr.innerHTML = ''; });
+      tr.innerHTML = w.length ? w.map(card).join('') : RESTING;
+    }).catch(function () { tr.innerHTML = RESTING; });
   }
   var sh = $('#shelf');
   if (sh) {
@@ -227,7 +228,7 @@
     getJSON(OL + '/subjects/' + encodeURIComponent(s) + '.json?limit=12').then(function (j) {
       sh.innerHTML = (j.works || []).map(function (w) {
         return card({ key: w.key, title: w.title, author_name: (w.authors || []).map(function (a) { return a.name; }), cover_i: w.cover_id, first_publish_year: w.first_publish_year });
-      }).join('');
-    }).catch(function () { sh.innerHTML = ''; });
+      }).join('') || RESTING;
+    }).catch(function () { sh.innerHTML = RESTING; });
   }
 })();
