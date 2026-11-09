@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   var D = document, W = window, OL = 'https://openlibrary.org';
+  var B = (document.documentElement.getAttribute('data-base') || '').replace(/\/$/, '');
   var FIELDS = 'key,title,author_name,first_publish_year,cover_i,isbn,edition_count,subject,publisher,number_of_pages_median';
   function $(s, c) { return (c || D).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || D).querySelectorAll(s)); }
@@ -61,7 +62,7 @@
     if (d.author_name && d.author_name[0]) p.push('a=' + encodeURIComponent(d.author_name[0]));
     if (d.first_publish_year) p.push('y=' + d.first_publish_year);
     if (d.cover_i) p.push('c=' + d.cover_i);
-    return '/book/?' + p.join('&');
+    return B + '/book/?' + p.join('&');
   }
   function card(d) {
     var c = coverURL(d, 'M'), a = (d.author_name || []).slice(0, 2).join(', ');
@@ -88,7 +89,7 @@
         if (cnt) cnt.textContent = (j.numFound || docs.length).toLocaleString() + ' matching works';
         res.innerHTML = docs.length ? docs.map(card).join('') : '<div class="empty">No matches. Try fewer words, check the spelling, or search by ISBN.</div>';
       }).catch(function () {
-        res.innerHTML = '<div class="empty">Book data is temporarily unavailable. You can still <a href="/compare/?q=' + encodeURIComponent(q) + '">compare prices for “' + esc(q) + '”</a> directly.</div>';
+        res.innerHTML = '<div class="empty">Book data is temporarily unavailable. You can still <a href="' + B + '/compare/?q=' + encodeURIComponent(q) + '">compare prices for “' + esc(q) + '”</a> directly.</div>';
       });
     }
   }
@@ -119,7 +120,7 @@
         var src = st.cover ? 'https://covers.openlibrary.org/b/id/' + st.cover + '-L.jpg' : (st.isbn ? 'https://covers.openlibrary.org/b/isbn/' + st.isbn + '-L.jpg?default=false' : '');
         cv.innerHTML = '<div class="cover-ph">' + esc(st.title || 'No cover') + '</div>' + (src ? '<img src="' + esc(src) + '" alt="Cover of ' + esc(st.title) + '" onerror="this.remove()">' : '');
       }
-      var vl = $('#value-link'); if (vl) vl.href = '/tools/book-value/?t=' + encodeURIComponent(st.title || st.isbn) + (st.year ? '&y=' + st.year : '');
+      var vl = $('#value-link'); if (vl) vl.href = B + '/tools/book-value/?t=' + encodeURIComponent(st.title || st.isbn) + (st.year ? '&y=' + st.year : '');
       var ol = $('#ol-link'); if (ol) ol.href = st.work ? OL + '/works/' + st.work : OL + '/search?q=' + encodeURIComponent(st.isbn || st.title);
       var ci = $('#copy-isbn'); if (ci) { ci.hidden = !st.isbn; ci.setAttribute('data-copy', st.isbn); ci.textContent = 'Copy ISBN ' + st.isbn; }
       var mi = $('#match-isbn'); if (mi) { mi.disabled = !st.isbn; mi.checked = st.match === 'isbn'; }
@@ -137,7 +138,7 @@
         kv('Typical length', d.number_of_pages_median ? esc(d.number_of_pages_median) + ' pages' : '') +
         kv('Publishers', esc((d.publisher || []).slice(0, 3).join(', '))) + kv('ISBN', st.isbn ? esc(st.isbn) + (to10(st.isbn) && st.isbn.length === 13 ? ' &middot; ISBN-10 ' + esc(to10(st.isbn)) : '') : '');
       var sb = $('#bk-subjects');
-      if (sb && d.subject && d.subject.length) sb.innerHTML = d.subject.slice(0, 10).map(function (s) { return '<a class="chip" href="/search/?q=' + encodeURIComponent(s) + '">' + esc(s) + '</a>'; }).join('');
+      if (sb && d.subject && d.subject.length) sb.innerHTML = d.subject.slice(0, 10).map(function (s) { return '<a class="chip" href="' + B + '/search/?q=' + encodeURIComponent(s) + '">' + esc(s) + '</a>'; }).join('');
     };
     var describe = function () {
       if (!st.work) return;
@@ -210,7 +211,7 @@
   quickTool($('#sell-form'), null, $('#s-sell'), $('#s-match'));
 
   /* ---------- Home: trending (auto-updated) + daily subject shelf ---------- */
-  var RESTING = '<div class="empty" style="grid-column:1/-1">The live catalogue is taking a short break. <a href="/search/?q=classics">Browse classics</a> or search any title above.</div>';
+  var RESTING = '<div class="empty" style="grid-column:1/-1">The live catalogue is taking a short break. <a href="' + B + '/search/?q=classics">Browse classics</a> or search any title above.</div>';
   var tr = $('#trending');
   if (tr && !tr.children.length) {
     tr.innerHTML = skeletons(6);

@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   var D = document, W = window;
+  var B = (document.documentElement.getAttribute('data-base') || '').replace(/\/$/, '');
   function $(s, c) { return (c || D).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || D).querySelectorAll(s)); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -22,11 +23,11 @@
       bible: [1, 'Old Bible or religious book'], local: [3, 'Local history, maps or ephemera']
     };
     var TIERS = [
-      { max: 2, band: 'Under $5', name: 'Low', route: 'Donate, swap, or sell in bulk. Individually listing it rarely pays after fees and postage.', link: '/guides/where-to-donate-used-books/', lt: 'Where to donate' },
-      { max: 7, band: '$5 – $25', name: 'Modest', route: 'Check instant buyback quotes first, then a marketplace listing if the quote is low.', link: '/sell/', lt: 'Compare sell routes' },
-      { max: 13, band: '$25 – $150', name: 'Promising', route: 'List individually (AbeBooks, eBay, Biblio) with clear photos and an honest condition grade.', link: '/guides/how-to-sell-used-books/', lt: 'Selling playbook' },
-      { max: 19, band: '$150 – $1,000', name: 'Significant', route: 'Get a second opinion from a specialist dealer and compare sold prices before you accept any offer.', link: '/get-offers/#valuation', lt: 'Request a valuation' },
-      { max: 999, band: '$1,000+ possible', name: 'High potential', route: 'Do not sell quickly. Seek a professional appraisal or an established rare-book dealer or auction house.', link: '/get-offers/#valuation', lt: 'Request a valuation' }
+      { max: 2, band: 'Under $5', name: 'Low', route: 'Donate, swap, or sell in bulk. Individually listing it rarely pays after fees and postage.', link: B + '/guides/where-to-donate-used-books/', lt: 'Where to donate' },
+      { max: 7, band: '$5 – $25', name: 'Modest', route: 'Check instant buyback quotes first, then a marketplace listing if the quote is low.', link: B + '/sell/', lt: 'Compare sell routes' },
+      { max: 13, band: '$25 – $150', name: 'Promising', route: 'List individually (AbeBooks, eBay, Biblio) with clear photos and an honest condition grade.', link: B + '/guides/how-to-sell-used-books/', lt: 'Selling playbook' },
+      { max: 19, band: '$150 – $1,000', name: 'Significant', route: 'Get a second opinion from a specialist dealer and compare sold prices before you accept any offer.', link: B + '/get-offers/#valuation', lt: 'Request a valuation' },
+      { max: 999, band: '$1,000+ possible', name: 'High potential', route: 'Do not sell quickly. Seek a professional appraisal or an established rare-book dealer or auction house.', link: B + '/get-offers/#valuation', lt: 'Request a valuation' }
     ];
     var t0 = qp.get('t'), y0 = num(qp.get('y'), 0);
     if (t0 && vf.elements.title) vf.elements.title.value = t0;
@@ -54,7 +55,7 @@
       var sc = { rare: 4, few: 2, some: 0, many: -2 }[val(vf, 'scarcity')] || 0; add('Copies for sale online', sc);
       var dm = { high: 2, niche: 1 }[val(vf, 'demand')] || 0; add('Collector demand', dm);
       var tier = TIERS[0]; for (var i = 0; i < TIERS.length; i++) { if (score <= TIERS[i].max) { tier = TIERS[i]; break; } }
-      if (val(vf, 'cat') === 'tbnew' && score < 14) tier = { band: tier.band, name: tier.name, route: 'Current textbooks sell fastest through buyback comparison sites. Sell before a new edition is announced.', link: '/sell/', lt: 'Compare buyback offers' };
+      if (val(vf, 'cat') === 'tbnew' && score < 14) tier = { band: tier.band, name: tier.name, route: 'Current textbooks sell fastest through buyback comparison sites. Sell before a new edition is announced.', link: B + '/sell/', lt: 'Compare buyback offers' };
       var pct = Math.max(4, Math.min(100, (score + 6) / 30 * 100));
       var r = $('#value-result');
       r.innerHTML = '<p class="eyebrow">Estimated value band</p><div class="big">' + tier.band + '</div><p><span class="badge' + (score >= 14 ? ' badge-accent' : '') + '">' + tier.name + '</span> &middot; score ' + (Math.round(score * 10) / 10) + '</p>' +
@@ -89,7 +90,7 @@
       var listing = line + '.' + (notes.length ? ' ' + notes.join('; ').replace(/^./, function (c) { return c.toUpperCase(); }) + '.' : ' No notable defects.') + (extra.length ? ' Note: ' + extra.join(', ') + '.' : '');
       $('#grade-result').innerHTML = '<p class="eyebrow">Suggested grade</p><div class="big">' + GR[cap] + '</div><p>' + DESC[cap] + '</p>' +
         '<p class="legend">Copy-ready condition note</p><div class="out" id="grade-out">' + esc(listing) + '</div>' +
-        '<p class="mt-2"><button type="button" class="btn btn-primary btn-sm" data-copy="#grade-out">Copy note</button> <a class="btn btn-ghost btn-sm" href="/guides/book-condition-grades/">Grading guide</a></p>' +
+        '<p class="mt-2"><button type="button" class="btn btn-primary btn-sm" data-copy="#grade-out">Copy note</button> <a class="btn btn-ghost btn-sm" href="' + B + '/guides/book-condition-grades/">Grading guide</a></p>' +
         '<p class="fine">Grades follow the widely used bookseller scale (As New → Poor). When in doubt, grade down and describe every flaw.</p>';
     };
     gf.addEventListener('change', gcalc); gcalc();
@@ -151,7 +152,7 @@
         if (I.valid13(c)) h = '<p class="eyebrow">Valid ISBN-13</p><div class="big">' + (I.to10(c) || 'No ISBN-10') + '</div><p>' + (I.to10(c) ? 'That is the ISBN-10 for <strong>' + c + '</strong>.' : 'ISBNs starting with 979 have no ISBN-10 equivalent.') + '</p>';
         else h = '<p class="eyebrow">Invalid ISBN-13</p><div class="big">Check digit mismatch</div><p>For <strong>' + c.slice(0, 12) + '</strong> the check digit should be <strong>' + I.check13(c.slice(0, 12)) + '</strong>.</p>';
       } else h = '<p class="eyebrow">Not an ISBN</p><div class="big">' + c.length + ' digits</div><p>ISBNs have 10 or 13 characters (the last ISBN-10 character may be X).</p>';
-      if (I.isISBN(c)) h += '<p class="mt-2"><a class="btn btn-primary btn-sm" href="/book/?isbn=' + c + '">Look up this book</a> <a class="btn btn-accent btn-sm" href="/sell/?q=' + c + '">Where to sell it</a> <button type="button" class="btn btn-ghost btn-sm" data-copy="' + c + '">Copy</button></p>';
+      if (I.isISBN(c)) h += '<p class="mt-2"><a class="btn btn-primary btn-sm" href="' + B + '/book/?isbn=' + c + '">Look up this book</a> <a class="btn btn-accent btn-sm" href="' + B + '/sell/?q=' + c + '">Where to sell it</a> <button type="button" class="btn btn-ghost btn-sm" data-copy="' + c + '">Copy</button></p>';
       out.innerHTML = h;
     };
     isf.addEventListener('input', icalc); isf.addEventListener('submit', function (e) { e.preventDefault(); icalc(); }); icalc();
@@ -193,7 +194,7 @@
         books < 40 ? 'For a small lot, instant buyback quotes or a local used bookstore are usually the fastest route.' : 'A bulk buyer or a local used bookstore is likely the most efficient route; pull out anything collectible first.';
       var sum = lines.join(', ');
       $('#coll-result').innerHTML = '<p class="eyebrow">Bulk-offer ballpark</p><div class="big">' + (books ? moneyR(lo) + ' – ' + moneyR(hi) : '—') + '</div><p><strong>' + books.toLocaleString() + '</strong> books &middot; ' + collect + ' older/collectible</p><p>' + advice + '</p>' +
-        '<p><a class="btn btn-accent btn-block" href="/get-offers/?books=' + books + '&summary=' + encodeURIComponent(sum) + '#collection">Get real offers for this collection</a></p>' +
+        '<p><a class="btn btn-accent btn-block" href="' + B + '/get-offers/?books=' + books + '&summary=' + encodeURIComponent(sum) + '#collection">Get real offers for this collection</a></p>' +
         '<p class="fine">Uses the per-book figures you see on the left (editable starting assumptions for what bulk buyers often pay — a fraction of retail). Real offers depend on titles, condition, demand and location.</p>';
     };
     cf.addEventListener('input', ccalc); cf.addEventListener('change', ccalc); ccalc();
