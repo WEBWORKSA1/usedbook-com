@@ -3,6 +3,7 @@
 Checks the built _site for: build success, AdSense code and the mandatory
 contact bar on every page, page titles/descriptions/H1s, broken internal
 links, required root files, and any exposed e-mail address.
+Set BASEURL=/usedbook-com to check a build made for the github.io project path.
 """
 import pathlib
 import re
@@ -10,7 +11,9 @@ import sys
 from urllib.parse import urlparse, unquote
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = ROOT / "_site"
+import os
+BASE = os.environ.get("BASEURL", "").rstrip("/")
+SITE = ROOT / "_site" / BASE.lstrip("/") if BASE else ROOT / "_site"
 ADS = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271'
 BAR = 'Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership'
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\.[A-Za-z0-9.-]*[A-Za-z]{2,}")
@@ -52,6 +55,11 @@ for f in html:
         path = unquote(urlparse(url).path)
         if not path.startswith("/"):
             continue
+        if BASE:
+            if not path.startswith(BASE + "/"):
+                issues.append(f"Link escapes base path {url} on {rel}")
+                continue
+            path = path[len(BASE):]
         target = SITE / path.lstrip("/")
         ok = target.is_file() or (target / "index.html").is_file() or target.with_suffix(".html").is_file()
         if not ok:

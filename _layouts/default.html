@@ -1,5 +1,8 @@
+{%- comment -%} Base-path aware output: internal links are written as /path and prefixed here with site.baseurl
+(empty on usedbook.com, /usedbook-com on webworksa1.github.io), so the site works on either address. {%- endcomment -%}
+{%- capture ub_page -%}
 <!doctype html>
-<html lang="{{ site.lang | default: 'en' }}" data-theme="light">
+<html lang="{{ site.lang | default: 'en' }}" data-theme="light" data-base="{{ site.baseurl }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -180,3 +183,12 @@
 {%- endfor %}
 </body>
 </html>
+{%- endcapture -%}
+{%- assign ub_base = site.baseurl | default: '' -%}
+{%- if ub_base != '' -%}
+{%- assign ub_href = 'href="' | append: ub_base | append: '/' -%}
+{%- assign ub_src = 'src="' | append: ub_base | append: '/' -%}
+{{ ub_page | replace: 'href="/', ub_href | replace: 'src="/', ub_src }}
+{%- else -%}
+{{ ub_page }}
+{%- endif -%}

@@ -1,18 +1,18 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Organization","@id":"{{ site.url }}/#org","name":"UsedBook.com","url":"{{ site.url }}/","logo":"{{ site.url }}/assets/img/logo.svg"},
-{"@type":"WebSite","@id":"{{ site.url }}/#website","url":"{{ site.url }}/","name":"UsedBook.com","publisher":{"@id":"{{ site.url }}/#org"},"potentialAction":{"@type":"SearchAction","target":"{{ site.url }}/search/?q={search_term_string}","query-input":"required name=search_term_string"}}
+{"@type":"Organization","@id":"{{ '/' | absolute_url }}#org","name":"UsedBook.com","url":"{{ '/' | absolute_url }}","logo":"{{ '/assets/img/logo.svg' | absolute_url }}"},
+{"@type":"WebSite","@id":"{{ '/' | absolute_url }}#website","url":"{{ '/' | absolute_url }}","name":"UsedBook.com","publisher":{"@id":"{{ '/' | absolute_url }}#org"},"potentialAction":{"@type":"SearchAction","target":"{{ '/search/' | absolute_url }}?q={search_term_string}","query-input":"required name=search_term_string"}}
 {%- if page.url != '/' -%}
-,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}
+,{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ '/' | absolute_url }}"}
 {%- if page.type == 'guide' -%}
-,{"@type":"ListItem","position":2,"name":"Guides","item":"{{ site.url }}/guides/"},{"@type":"ListItem","position":3,"name":{{ page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}
+,{"@type":"ListItem","position":2,"name":"Guides","item":"{{ '/guides/' | absolute_url }}"},{"@type":"ListItem","position":3,"name":{{ page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}
 {%- else -%}
 ,{"@type":"ListItem","position":2,"name":{{ page.title | default: 'Page' | jsonify }},"item":"{{ page.url | absolute_url }}"}
 {%- endif -%}
 ]}
 {%- endif -%}
 {%- if page.type == 'guide' -%}
-,{"@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"datePublished":"{{ page.published | default: page.updated | date_to_xmlschema }}","dateModified":"{{ page.updated | date_to_xmlschema }}","author":{"@type":"Organization","name":"UsedBook Editorial Team","url":"{{ site.url }}/editorial-policy/"},"publisher":{"@id":"{{ site.url }}/#org"},"mainEntityOfPage":"{{ page.url | absolute_url }}","image":"{{ site.url }}/assets/img/og.svg"}
+,{"@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"datePublished":"{{ page.published | default: page.updated | date_to_xmlschema }}","dateModified":"{{ page.updated | date_to_xmlschema }}","author":{"@type":"Organization","name":"UsedBook Editorial Team","url":"{{ '/editorial-policy/' | absolute_url }}"},"publisher":{"@id":"{{ '/' | absolute_url }}#org"},"mainEntityOfPage":"{{ page.url | absolute_url }}","image":"{{ '/assets/img/og.svg' | absolute_url }}"}
 {%- endif -%}
 {%- if page.faq -%}
 ,{"@type":"FAQPage","mainEntity":[{%- for f in page.faq -%}{"@type":"Question","name":{{ f.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | jsonify }}}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]}

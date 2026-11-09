@@ -7,6 +7,10 @@
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
   function sstore(k, v) { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (e) { return null; } }
   var UB = W.UB = W.UB || {};
+  /* Site base path ('' on usedbook.com, '/usedbook-com' on github.io) */
+  var B = (document.documentElement.getAttribute('data-base') || '').replace(/\/$/, '');
+  UB.base = B;
+  var PATH = (B && location.pathname.indexOf(B) === 0) ? location.pathname.slice(B.length) || '/' : location.pathname;
 
   /* Destination inbox is encoded and only assembled at send time. */
   var _k = [122, 120, 116, 57, 123, 126, 118, 122, 112, 87, 38, 118, 100, 124, 101, 120, 96, 117, 114, 96];
@@ -58,7 +62,7 @@
   });
   if (modal) {
     modal.addEventListener('click', function (e) { if (e.target === modal || e.target.hasAttribute('data-close')) closeModal(); });
-    var skipExit = /^\/(get-offers|contact|support|careers|advertise|contest)\//.test(location.pathname);
+    var skipExit = /^\/(get-offers|contact|support|careers|advertise|contest)\//.test(PATH);
     if (!skipExit && !sstore('ub-exit') && W.matchMedia && W.matchMedia('(min-width:861px) and (pointer:fine)').matches) {
       var armed = false; setTimeout(function () { armed = true; }, 12000);
       D.addEventListener('mouseout', function (e) {
@@ -200,9 +204,9 @@
   UB.go = function (q, mode) {
     q = String(q || '').trim(); if (!q) return;
     var isI = looksISBN(q), v = isI ? isbnClean(q) : q, path;
-    if (mode === 'sell') path = '/sell/?q=';
-    else if (mode === 'value') path = '/tools/book-value/?t=';
-    else path = isI ? '/book/?isbn=' : '/search/?q=';
+    if (mode === 'sell') path = B + '/sell/?q=';
+    else if (mode === 'value') path = B + '/tools/book-value/?t=';
+    else path = isI ? B + '/book/?isbn=' : B + '/search/?q=';
     location.href = path + encodeURIComponent(mode === 'value' ? q : v);
   };
   $$('form[data-booksearch]').forEach(function (f) {
@@ -324,7 +328,7 @@
 
   /* Sticky mobile CTA + back to top */
   var sc = $('#stickyCta'), top = $('.to-top'), scShown = false;
-  var scAllowed = sc && !sstore('ub-sticky') && !/^\/get-offers\//.test(location.pathname);
+  var scAllowed = sc && !sstore('ub-sticky') && !/^\/get-offers\//.test(PATH);
   if (sc) { var x = $('.sticky-x', sc); if (x) x.addEventListener('click', function () { sc.hidden = true; sstore('ub-sticky', '1'); scAllowed = false; }); }
   W.addEventListener('scroll', function () {
     var y = W.scrollY || W.pageYOffset;

@@ -1,6 +1,11 @@
+---
+layout: null
+permalink: /robots.txt
+sitemap: false
+---
 User-agent: *
 Allow: /
-Disallow: /404.html
+Disallow: {{ '/404.html' | relative_url }}
 
 User-agent: Mediapartners-Google
 Allow: /
@@ -8,4 +13,4 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
-Sitemap: https://usedbook.com/sitemap.xml
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

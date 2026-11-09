@@ -6,8 +6,8 @@ permalink: /feed.xml
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>UsedBook.com Guides</title>
-  <link>{{ site.url }}/guides/</link>
-  <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+  <link>{{ '/guides/' | absolute_url }}</link>
+  <atom:link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
   <description>{{ site.description | xml_escape }}</description>
   <language>en</language>
   <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>

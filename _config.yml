@@ -5,8 +5,10 @@ description: >-
   UsedBook.com compares used-book prices across 13 marketplaces, estimates what your
   books are worth, grades condition, decodes first editions and shows the best places
   to sell, donate or swap used books.
-url: "https://usedbook.com"
-baseurl: ""
+# url and baseurl are intentionally NOT set: GitHub Pages fills them in automatically
+# (https://usedbook.com and "" once the custom domain is attached; https://webworksa1.github.io
+# and "/usedbook-com" before that). _layouts/default.html prefixes every internal link with it.
+production_url: "https://usedbook.com"
 lang: en
 timezone: America/Toronto
 permalink: pretty
